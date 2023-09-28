@@ -1,3 +1,4 @@
+const { ensurAuthenticated } = require("../middleware/auth");
 const { limiter } = require("../middleware/rateLimit");
 const { Url } = require("../models/url");
 const { redis } = require("../redis/redis");
@@ -20,7 +21,7 @@ router.post("/api/url/free", limiter, async (req, res) => {
   await redis.incr("counter");
 });
 
-router.post("/api/url/paid", async (req, res) => {
+router.post("/api/url/paid", ensurAuthenticated, async (req, res) => {
   let shortUrl = "";
   const { longUrl, custom } = req.body;
   if (custom) {
