@@ -1,12 +1,14 @@
-require("dotenv").config();
-const { Redis } = require("@upstash/redis");
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN,
-});
+//remote host
+// require("dotenv").config();
+// const { Redis } = require("@upstash/redis");
+// const redis = new Redis({
+//   url: process.env.UPSTASH_REDIS_REST_URL,
+//   token: process.env.UPSTASH_REDIS_REST_TOKEN,
+// });
 
-// const { Redis } = require("ioredis");
-// const redis = new Redis();
+//local host
+const { Redis } = require("ioredis");
+const redis = new Redis();
 
 const initialSet = async () => {
   const count = await redis.get("counter");

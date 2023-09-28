@@ -1,3 +1,4 @@
+const { limiter } = require("../middleware/rateLimit");
 const { Url } = require("../models/url");
 const { redis } = require("../redis/redis");
 const base62 = require("base-62.js");
@@ -5,7 +6,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 const router = express.Router();
 
-router.post("/api/url/free", async (req, res) => {
+router.post("/api/url/free", limiter, async (req, res) => {
   const { longUrl } = req.body;
   const count = await redis.get("counter");
   const shortUrl = base62.encode(count);

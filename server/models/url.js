@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const UrlShema = new mongoose.Schema({
   email: { type: String, default: "" },
-  longUrl: String,
+  longUrl: { type: String, require },
   shortUrl: String,
   createdOn: { type: Date, default: Date.now() },
 });
