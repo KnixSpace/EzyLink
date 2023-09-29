@@ -1,0 +1,46 @@
+.home-nav {
+  padding: 50px 60px 0px 60px;
+  align-items: center;
+}
+
+.home-logo {
+  font-size: 50px;
+  font-weight: 600;
+  color: #0276ff;
+}
+
+.home-button button {
+  margin-inline-start: 50px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.signup {
+  border-radius: 10px;
+  border: 1px solid #0276ff;
+  background: #e3effb;
+}
+
+.home-main {
+  padding: 50px 50px;
+  align-items: center;
+}
+
+.home-heading {
+  color: #101010;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 500;
+  line-height: normal;
+  padding: 50px 0px;
+}
+
+.home-main button {
+  width: 600px;
+  padding: 10px;
+  border: 0px;
+  border-radius: 10px;
+  background: #0276ff;
+  color: #E3EFFB;
+  font-size: 18px;
+}
