@@ -1,0 +1,74 @@
+.login-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  backdrop-filter: blur(20px);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  padding: 30px;
+  /* border: 0px solid #0276ff; */
+  border-radius: 10px;
+}
+
+.login-text {
+  text-align: center;
+  font-size: 27px;
+  font-weight: 500;
+  padding: 20px 10px;
+  margin: 15px;
+  background: none;
+}
+
+.login-button {
+  display: flex;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid #0276ff;
+  font-size: 20px;
+  font-weight: 500;
+  align-items: center;
+  background: none;
+}
+
+.login-google {
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  margin-right: 15px;
+  background: none;
+}
+
+.login-google img {
+  width: 100%;
+  object-fit: contain;
+  background: none;
+}
+
+.login-close {
+  position: absolute;
+  top: 60px;
+  right: 70px;
+  background: none;
+  color: #0276ff;
+}
+
+.login-close :hover {
+  cursor: pointer;
+}

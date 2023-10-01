@@ -1,12 +1,6 @@
 .home-nav {
-  padding: 50px 60px 0px 60px;
+  padding: 40px 60px 0px 60px;
   align-items: center;
-}
-
-.home-logo {
-  font-size: 50px;
-  font-weight: 600;
-  color: #0276ff;
 }
 
 .home-button button {
@@ -41,6 +35,6 @@
   border: 0px;
   border-radius: 10px;
   background: #0276ff;
-  color: #E3EFFB;
+  color: #e3effb;
   font-size: 18px;
 }
