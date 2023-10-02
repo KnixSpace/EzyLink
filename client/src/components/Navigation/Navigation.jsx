@@ -3,9 +3,24 @@ import { openPage } from "../../pages/login-signup/loginSlice";
 import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import "./navigation.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 const Navigation = () => {
   const dispatch = useDispatch();
+  const user = false;
+  if (user) {
+    return (
+      <>
+        <div className="navigation-nav d-flex">
+          <div className="flex-grow-1">
+            <Logo />
+          </div>
+          <div className="navigation-button">
+            <button className="border-0">User</button>
+          </div>
+        </div>
+      </>
+    );
+  }
   return (
     <>
       <div className="navigation-nav d-flex">
@@ -43,6 +58,7 @@ const Navigation = () => {
           </motion.button>
         </div>
       </div>
+      <Outlet />
     </>
   );
 };

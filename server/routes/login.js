@@ -1,3 +1,4 @@
+require("dotenv").config();
 const passport = require("passport");
 const router = require("express").Router();
 
@@ -31,9 +32,9 @@ router.get("/logout", (req, res) => {
 });
 
 router.get(
-  "/api/login/callback",
+  "/callback",
   passport.authenticate("google", {
-    successRedirect: process.env.HOST_DASHBOARD,
+    successRedirect: "http://localhost:5173/dashboard",
     failureRedirect: "/api/login",
   })
 );

@@ -29,7 +29,10 @@ const Login = () => {
           <motion.button
             className="login-button"
             whileTap={{ scale: 0.98 }}
-            onClick={googleAuth}
+            onClick={() => {
+              googleAuth();
+              dispatch(closePage());
+            }}
           >
             <div className="login-google">
               <img src={google} alt="" />
