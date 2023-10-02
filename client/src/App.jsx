@@ -27,7 +27,7 @@ function App() {
       <AnimatePresence>
         {isOpen && <Login key={1} />}
         <Routes>
-          <Route path="/" element={<Navigation/>}>
+          <Route path="/" element={<Navigation userData={user} />}>
             <Route index element={<Home />}></Route>
             <Route path="about" element={<About />}></Route>
             <Route

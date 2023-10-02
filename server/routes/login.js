@@ -22,7 +22,7 @@ router.get("/api/login/failed", (req, res) => {
   });
 });
 
-router.get("/logout", (req, res) => {
+router.get("api/logout", (req, res) => {
   req.logout((err) => {
     if (err) {
       return next(err);
@@ -34,7 +34,7 @@ router.get("/logout", (req, res) => {
 router.get(
   "/callback",
   passport.authenticate("google", {
-    successRedirect: "http://localhost:5173/dashboard",
+    successRedirect: process.env.HOST_DASHBOARD,
     failureRedirect: "/api/login",
   })
 );

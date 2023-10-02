@@ -4,20 +4,21 @@ import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import "./navigation.css";
 import { NavLink, Outlet } from "react-router-dom";
-const Navigation = () => {
+const Navigation = ({ userData }) => {
   const dispatch = useDispatch();
-  const user = false;
-  if (user) {
+  if (userData) {
     return (
       <>
         <div className="navigation-nav d-flex">
           <div className="flex-grow-1">
             <Logo />
           </div>
-          <div className="navigation-button">
-            <button className="border-0">User</button>
+          <div className="user-name">{userData?.name}</div>
+          <div className="user-avatar">
+            <img src={userData.picture} alt="" />
           </div>
         </div>
+        <Outlet />
       </>
     );
   }

@@ -14,3 +14,25 @@
   border: 1px solid #0276ff;
   background: #e3effb;
 }
+
+
+/* After User Login */
+
+.user-name {
+  font-size: 18px;
+  padding-inline: 15px;
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  margin-left: 10px;
+  overflow: hidden;
+}
+
+.user-avatar img {
+  width: 100%;
+  object-fit: contain;
+}
+
