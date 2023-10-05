@@ -1,0 +1,73 @@
+.shortUrl-main {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  backdrop-filter: blur(20px);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.shortUrl-heading {
+  padding: 15px;
+  font-size: 18px;
+  background: none;
+}
+
+.shortUrl-url {
+  padding: 15px;
+  margin: 10px;
+  font-size: 24px;
+  font-weight: 600;
+  background: none;
+  color: #a6b3c7;
+}
+
+.shortUrl-share {
+  display: flex;
+  padding: 15px;
+  margin: 10px;
+  background: none;
+  gap: 10px;
+}
+
+.shortUrl-share i {
+  padding: 10px;
+  margin-inline: 10px;
+  color: #a6b3c7;
+}
+
+.shortUrl-share i:hover {
+  cursor: pointer;
+}
+
+.shortUrl-close {
+  position: absolute;
+  top: 60px;
+  right: 70px;
+  background: none;
+  color: #0276ff;
+}
+
+.shortUrl-close :hover {
+  cursor: pointer;
+}
+
+.shortUrl-copy {
+  position: absolute;
+  bottom: 270px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #0276ff;
+  background-color: #e3effb;
+  color: #0276ff;
+}

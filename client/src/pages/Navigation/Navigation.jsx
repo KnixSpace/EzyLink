@@ -1,5 +1,5 @@
-import Logo from "../logo/Logo";
-import { openPage } from "../../pages/login-signup/loginSlice";
+import Logo from "../../components/logo/Logo";
+import { openPage } from "../login-signup/loginSlice";
 import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import "./navigation.css";

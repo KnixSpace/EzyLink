@@ -17,8 +17,12 @@ router.post("/api/url/free", limiter, async (req, res) => {
     shortUrl,
   });
   await newUrl.save();
-  res.send(cliUrl);
   await redis.incr("counter");
+  const shortUrlRes = {
+    shortUrl: cliUrl,
+  };
+
+  res.send(JSON.stringify(shortUrlRes));
 });
 
 router.post("/api/url/paid", ensurAuthenticated, async (req, res) => {
@@ -37,7 +41,11 @@ router.post("/api/url/paid", ensurAuthenticated, async (req, res) => {
     shortUrl,
   });
   await newUrl.save();
-  res.send(cliUrl);
+
+  const shortUrlRes = {
+    shortUrl: cliUrl,
+  };
+  res.send(JSON.stringify(shortUrlRes));
 });
 
 router.get("/:surl", async (req, res) => {

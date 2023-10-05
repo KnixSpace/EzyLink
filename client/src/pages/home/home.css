@@ -12,6 +12,35 @@
   padding: 50px 0px;
 }
 
+
+.home-input {
+  width: 600px;
+  padding: 50px 0px;
+}
+
+.home-input label {
+  font-size: 20px;
+  font-weight: 500;
+  padding-bottom: 10px;
+}
+
+.home-input input {
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid #a6b3c7;
+  background: #e3effb;
+  padding: 15px;
+}
+
+.home-input input:focus {
+  outline: #0276ff solid 1px;
+  outline-offset: -1px;
+}
+
+::placeholder {
+  color: #a6b3c7;
+}
+
 .home-main button {
   width: 600px;
   padding: 10px;

@@ -1,12 +1,13 @@
+import About from "./pages/about/About";
+import Dashboard from "./pages/dashboard/Dashboard";
+import Navigation from "./pages/Navigation/Navigation";
 import Login from "./pages/login-signup/Login";
 import Home from "./pages/home/Home";
 import { AnimatePresence } from "framer-motion";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Navigation from "./components/Navigation/Navigation";
-import About from "./pages/about/About";
-import Dashboard from "./pages/dashboard/Dashboard";
 import { useEffect, useState } from "react";
+import ShortUrl from "./pages/shortUrl/ShortUrl";
 function App() {
   const [user, setUser] = useState(null);
   const { isOpen } = useSelector((store) => store.loginPage);
@@ -21,12 +22,13 @@ function App() {
     };
     getUser();
   }, []);
-
   return (
     <>
       <AnimatePresence>
         {isOpen && <Login key={1} />}
-        <Routes>
+        <ShortUrl key={2}/>
+        <Home key={3}/>
+        {/* <Routes>
           <Route path="/" element={<Navigation userData={user} />}>
             <Route index element={<Home />}></Route>
             <Route path="about" element={<About />}></Route>
@@ -35,7 +37,7 @@ function App() {
               element={user ? <Dashboard userData={user} /> : null}
             />
           </Route>
-        </Routes>
+        </Routes> */}
       </AnimatePresence>
     </>
   );

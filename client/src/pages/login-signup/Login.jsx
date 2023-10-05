@@ -26,9 +26,8 @@ const Login = () => {
             Start shorting your <br /> URLs <br /> keep track and <br /> many
             more....
           </div>
-          <motion.button
+          <button
             className="login-button"
-            whileTap={{ scale: 0.98 }}
             onClick={() => {
               googleAuth();
               dispatch(closePage());
@@ -38,12 +37,10 @@ const Login = () => {
               <img src={google} alt="" />
             </div>
             Continue With Google
-          </motion.button>
+          </button>
         </div>
-        <motion.div
+        <div
           className="login-close"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
         >
           <i
             className="fa-solid fa-xmark fa-2xl"
@@ -51,7 +48,7 @@ const Login = () => {
               dispatch(closePage());
             }}
           ></i>
-        </motion.div>
+        </div>
       </motion.div>
     </>
   );
