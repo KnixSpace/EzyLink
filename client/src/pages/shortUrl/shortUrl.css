@@ -29,7 +29,7 @@
   font-size: 24px;
   font-weight: 600;
   background: none;
-  color: #a6b3c7;
+  color: #7f7d9c;
 }
 
 .shortUrl-share {
@@ -43,11 +43,13 @@
 .shortUrl-share i {
   padding: 10px;
   margin-inline: 10px;
-  color: #a6b3c7;
+  color: #7f7d9c;
+  background: none;
 }
 
 .shortUrl-share i:hover {
   cursor: pointer;
+  color: #0276ff;
 }
 
 .shortUrl-close {

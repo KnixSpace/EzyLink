@@ -1,0 +1,49 @@
+.limit-main {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background-color: #ffe6e9;
+  color: #cc0016;
+  align-items: center;
+}
+
+.limit-main p {
+  background: none;
+}
+
+.limit-login {
+  display: flex;
+  padding: 8px 18px;
+  border-radius: 10px;
+  border: 1px solid #0276ff;
+  font-size: 16px;
+  font-weight: 500;
+  align-items: center;
+  background: #e3effb;
+  margin-bottom: 10px;
+}
+
+.limit-google {
+  width: 24px;
+  overflow: hidden;
+  margin-right: 15px;
+  background: none;
+}
+
+.limit-google img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: none;
+}
+
+.limit-close {
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  align-items: center;
+  background-color: #ffe6e9;
+  color: #cc0016;
+  border: 1px solid #cc0016;
+}

@@ -4,7 +4,6 @@ import { closePage } from "./loginSlice";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import "./login.css";
-import { NavLink } from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch();

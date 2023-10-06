@@ -52,7 +52,10 @@ router.get("/:surl", async (req, res) => {
   const surl = req.params.surl;
   const url = await Url.findOne({ shortUrl: surl });
   if (!url) {
-    return res.send("link expired");
+    const message = {
+      error: "Link Expired",
+    };
+    return res.send(message);
   }
   res.redirect(url.longUrl);
 });

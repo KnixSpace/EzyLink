@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import ShortUrl from "./pages/shortUrl/ShortUrl";
+import Limit from "./components/Limit/Limit";
 function App() {
   const [user, setUser] = useState(null);
   const { isOpen } = useSelector((store) => store.loginPage);
@@ -26,9 +27,7 @@ function App() {
     <>
       <AnimatePresence>
         {isOpen && <Login key={1} />}
-        <ShortUrl key={2}/>
-        <Home key={3}/>
-        {/* <Routes>
+        <Routes>
           <Route path="/" element={<Navigation userData={user} />}>
             <Route index element={<Home />}></Route>
             <Route path="about" element={<About />}></Route>
@@ -37,7 +36,7 @@ function App() {
               element={user ? <Dashboard userData={user} /> : null}
             />
           </Route>
-        </Routes> */}
+        </Routes>
       </AnimatePresence>
     </>
   );

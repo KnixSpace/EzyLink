@@ -3,11 +3,13 @@ import Logo from "../../components/logo/Logo";
 import { motion } from "framer-motion";
 import "./shortUrl.css";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 const ShortUrl = ({ urldata }) => {
+  const dispatch = useDispatch();
   const [isCopied, setIsCopied] = useState(false);
   const copyUrl = async () => {
-    await navigator.clipboard.writeText("Hello Async blue");
+    await navigator.clipboard.writeText(urldata);
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
@@ -15,23 +17,24 @@ const ShortUrl = ({ urldata }) => {
   };
 
   const copyWhatsapp = () => {
-    const url = "http://localhost:5173/";
-    const sendLink = `https://wa.me/?text=${encodeURIComponent(url)}`;
+    const sendLink = `https://wa.me/?text=${encodeURIComponent(urldata)}`;
     window.open(sendLink);
   };
+
   return (
     <>
-      <div className="shortUrl-main">
+      <motion.div
+        className="shortUrl-main"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 100 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <Logo />
         <div className="shortUrl-heading">Now its Tiny...</div>
-        <div className="shortUrl-url">http://localhost:3000/kl</div>
+        <div className="shortUrl-url">{urldata}</div>
         <div className="shortUrl-share">
-          <i
-            className="fa-regular fa-copy fa-2xl"
-            onClick={() => {
-              copyUrl();
-            }}
-          ></i>
+          <i className="fa-regular fa-copy fa-2xl" onClick={copyUrl}></i>
           <i
             className="fa-brands fa-whatsapp fa-2xl"
             onClick={copyWhatsapp}
@@ -58,7 +61,7 @@ const ShortUrl = ({ urldata }) => {
             }}
           ></i>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };
