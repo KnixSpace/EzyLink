@@ -47,8 +47,9 @@ const Home = () => {
     <>
       <AnimatePresence>
         {getUrl && <ShortUrl urldata={shortUrl} key={5} />}
+        {/* <div className="back">Hl</div> */}
         <div
-          className="home-main container-sm container-lg d-flex flex-column"
+          className="home-main d-flex container-sm container-lg flex-column"
           key={6}
         >
           <div className="home-heading">Shorten Your URLs</div>
@@ -74,6 +75,7 @@ const Home = () => {
           </button>
         </div>
         {isLimit && <Limit key={7} />}
+        {/* <Limit/> */}
       </AnimatePresence>
     </>
   );

@@ -15,12 +15,12 @@
   background: #e3effb;
 }
 
-
 /* After User Login */
 
 .user-name {
   font-size: 18px;
   padding-inline: 15px;
+  font-weight: 500;
 }
 
 .user-avatar {
@@ -29,10 +29,10 @@
   border-radius: 50px;
   margin-left: 10px;
   overflow: hidden;
+  border: 1px solid #0276ff;
 }
 
 .user-avatar img {
   width: 100%;
   object-fit: contain;
 }
-

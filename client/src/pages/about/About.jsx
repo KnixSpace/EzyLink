@@ -1,5 +1,4 @@
-const About = ({ userData }) => {
-  console.log(userData);
-  return <div>About{userData.name}</div>;
+const About = () => {
+  return <div>About</div>;
 };
 export default About;
