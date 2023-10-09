@@ -69,6 +69,10 @@
   color: #0276ff;
 }
 
+.login-close i {
+  background: none;
+}
+
 .login-close :hover {
   cursor: pointer;
 }

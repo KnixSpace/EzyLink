@@ -1,5 +1,5 @@
 import Logo from "../../components/logo/Logo";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import "./dashboard.css";
 const Dashboard = ({ userData }) => {
   return (
@@ -20,16 +20,16 @@ const Dashboard = ({ userData }) => {
       <div className="dashboard-main container-fluid">
         <div className="row">
           <div className="col-auto dash-sidebar">
-            <Link className="sidebar-item new-link">New Link</Link>
-            <Link to={""} className="sidebar-item">
+            <div className="sidebar-item new-link">New Link</div>
+            <NavLink to={""} className="sidebar-item">
               Home
-            </Link>
-            <Link to={"analytics"} className="sidebar-item">
+            </NavLink>
+            <NavLink to={"analytics"} className="sidebar-item">
               Analytics
-            </Link>
-            <Link to={"links"} className="sidebar-item">
+            </NavLink>
+            <NavLink to={"links"} className="sidebar-item">
               Links
-            </Link>
+            </NavLink>
           </div>
           <div className="col">
             <Outlet />

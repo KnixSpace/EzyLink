@@ -1,4 +1,6 @@
 const DHome = () => {
-  return <div>DHome</div>;
+  return <>
+  
+  </>;
 };
 export default DHome;
