@@ -1,6 +1,7 @@
 import Logo from "../../components/logo/Logo";
 import { NavLink, Outlet } from "react-router-dom";
 import "./dashboard.css";
+import ShortUrl from "../shortUrl/ShortUrl";
 const Dashboard = ({ userData }) => {
   return (
     <>
@@ -20,7 +21,7 @@ const Dashboard = ({ userData }) => {
       <div className="dashboard-main container-fluid">
         <div className="row">
           <div className="col-auto dash-sidebar">
-            <div className="sidebar-item new-link">New Link</div>
+            <NavLink to={"newlink"} className="sidebar-item">New Link</NavLink>
             <NavLink to={""} className="sidebar-item">
               Home
             </NavLink>

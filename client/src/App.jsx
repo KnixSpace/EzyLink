@@ -1,3 +1,4 @@
+import NewLink from "./pages/dashboard/newlink/NewLink";
 import DHome from "./pages/dashboard/dhome/DHome";
 import Analytics from "./pages/dashboard/analytics/Analytics";
 import ULink from "./pages/dashboard/links/ULink";
@@ -42,6 +43,7 @@ function App() {
               }
             >
               <Route index element={<DHome />} />
+              <Route path="newlink" element={<NewLink />} />
               <Route path="analytics" element={<Analytics />} />
               <Route path="links" element={<ULink />} />
             </Route>
