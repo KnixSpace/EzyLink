@@ -1,8 +1,9 @@
+const { updateData } = require("../functions/urldata");
 const { ensurAuthenticated } = require("../middleware/auth");
 const { limiter } = require("../middleware/rateLimit");
 const { UrlData } = require("../models/paidUrl");
 const { Url } = require("../models/url");
-const { redis } = require("../redis/redis");
+const { redis } = require("../functions/redis");
 const base62 = require("base-62.js");
 const mongoose = require("mongoose");
 const express = require("express");
@@ -18,33 +19,9 @@ router.get("/:surl", async (req, res) => {
     return res.send(message);
   }
   res.redirect(url.longUrl);
+  updateData(surl);
 
   //Access data storing
-  const uData = await fetch("https://ipapi.co/json");
-  const { country_name } = await uData.json();
-
-  const updateEntry = await UrlData.updateOne(
-    {
-      shortUrl: surl,
-      location: { $elemMatch: { country: country_name } },
-    },
-    {
-      $inc: { totalClicked: 1, "location.$[elem].click": 1 },
-    },
-    {
-      arrayFilters: [{ "elem.country": country_name }],
-    }
-  );
-
-  if (updateEntry.matchedCount === 0) {
-    const newEntry = await UrlData.updateOne(
-      { shortUrl: surl },
-      {
-        $inc: { totalClicked: 1 },
-        $addToSet: { location: { country: country_name, click: 1 } },
-      }
-    );
-  }
 });
 
 router.post("/api/url/free", limiter, async (req, res) => {
