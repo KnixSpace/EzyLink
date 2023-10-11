@@ -1,6 +1,6 @@
 const login = require("./routes/login");
 const urls = require("./routes/urls");
-const { initialSet } = require("./redis/redis");
+const { initialSet } = require("./functions/redis");
 const cors = require("cors");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
