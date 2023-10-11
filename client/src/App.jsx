@@ -43,7 +43,7 @@ function App() {
               }
             >
               <Route index element={<DHome />} />
-              <Route path="newlink" element={<NewLink />} />
+              <Route path="newlink" element={<NewLink userData={user} />} />
               <Route path="analytics" element={<Analytics />} />
               <Route path="links" element={<ULink />} />
             </Route>

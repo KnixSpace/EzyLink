@@ -14,7 +14,7 @@ const Home = () => {
   const [url, setUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
   const newFree = {
-    longUrl: url,
+    longUrl: url.trim(),
   };
 
   const handelSubmit = async () => {
@@ -47,7 +47,6 @@ const Home = () => {
     <>
       <AnimatePresence>
         {getUrl && <ShortUrl urldata={shortUrl} key={5} />}
-        {/* <div className="back">Hl</div> */}
         <div
           className="home-main d-flex container-sm container-lg flex-column"
           key={6}
