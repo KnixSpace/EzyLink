@@ -1,0 +1,83 @@
+const mongoose = require("mongoose");
+const { UrlData } = require("../models/paidUrl");
+const updateData = async (shortUrl) => {
+  // fetch user ip for country
+  const ipData = await fetch("https://ipapi.co/json");
+  const res = await ipData.json();
+  const country = res.country_name;
+
+  // previous monday
+  const today = new Date();
+  const daysToSubtract = (today.getDay() + 6) % 7;
+  const previousMonday = new Date();
+  previousMonday.setDate(today.getDate() - daysToSubtract);
+  const date = previousMonday.toLocaleDateString();
+
+  //click logic
+
+  const findDate = await UrlData.findOne({
+    shortUrl,
+    weeklyClick: { $elemMatch: { date } },
+  });
+
+  if (findDate) {
+    const findLocation = await UrlData.findOne({
+      shortUrl,
+      clickPerCountry: { $elemMatch: { country } },
+    });
+    if (findLocation) {
+      const updateOld = await UrlData.updateOne(
+        { shortUrl },
+        {
+          $inc: {
+            totalClicked: 1,
+            "clickPerCountry.$[elemCountry].click": 1,
+            "weeklyClick.$[elemDate].click": 1,
+          },
+        },
+        {
+          arrayFilters: [
+            { "elemCountry.country": country },
+            { "elemDate.date": date },
+          ],
+        }
+      );
+    } else {
+      const updateLocation = await UrlData.updateOne(
+        { shortUrl },
+        {
+          $inc: { totalClicked: 1, "weeklyClick.$[elemDate].click": 1 },
+          $addToSet: { clickPerCountry: { country, click: 1 } },
+        },
+        { arrayFilters: [{ "elemDate.date": date }] }
+      );
+    }
+  } else {
+    const findLocation = await UrlData.findOne({
+      shortUrl,
+      clickPerCountry: { $elemMatch: { country } },
+    });
+    if (findLocation) {
+      const updateDate = await UrlData.updateOne(
+        { shortUrl },
+        {
+          $inc: { totalClicked: 1, "clickPerCountry.$[elemCountry].click": 1 },
+        },
+        { arrayFilters: [{ "elemCountry.country": country }] }
+      );
+    } else {
+      const updateNew = await UrlData.updateOne(
+        { shortUrl },
+        {
+          $inc: { totalClicked: 1 },
+          $addToSet: {
+            clickPerCountry: { country, click: 1 },
+            weeklyClick: { date, click: 1 },
+          },
+        }
+      );
+    }
+  }
+};
+
+module.exports.updateData = updateData;
