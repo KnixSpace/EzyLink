@@ -48,6 +48,13 @@ router.post("/api/url/paid", ensurAuthenticated, async (req, res) => {
   const { longUrl, custom, email } = req.body;
 
   if (custom) {
+    const findCustom = await Url.findOne({ shortUrl: custom });
+    if (findCustom) {
+      const already = {
+        error: "not available",
+      };
+      return res.send(JSON.stringify(already));
+    }
     shortUrl = custom;
   } else {
     const count = await redis.get("counter");
