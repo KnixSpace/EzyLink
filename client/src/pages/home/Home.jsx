@@ -34,7 +34,6 @@ const Home = () => {
 
     const data = await res.json();
     if (data?.error) {
-      console.log(data.error);
       dispatch(openLimit());
       return;
     }
@@ -74,7 +73,6 @@ const Home = () => {
           </button>
         </div>
         {isLimit && <Limit key={7} />}
-        {/* <Limit/> */}
       </AnimatePresence>
     </>
   );
