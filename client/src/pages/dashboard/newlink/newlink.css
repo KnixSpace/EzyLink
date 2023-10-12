@@ -78,13 +78,13 @@
   background-size: 400%;
   background-image: linear-gradient(
     45deg,
-    rgb(126, 226, 241) 0%,
-    rgb(134, 181, 244) 25%,
+    rgba(192, 233, 239, 1) 0%,
+    rgba(196, 216, 243, 1) 25%,
     rgba(200, 199, 247, 1) 50%,
     rgba(204, 181, 251, 1) 75%,
-    rgba(208, 140, 255, 1) 100%
+    rgba(208, 164, 255, 1) 100%
   );
-  animation: ani 2s infinite alternate;
+  animation: ani 1s infinite alternate;
 }
 
 @keyframes ani {
@@ -111,4 +111,10 @@
   background: #0276ff;
   color: #e3effb;
   font-size: 18px;
+}
+
+.newlink-shortUrl {
+  position: fixed;
+  top: 0;
+  left: 0;
 }

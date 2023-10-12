@@ -11,6 +11,8 @@ const NewLink = ({ userData }) => {
   const [url, setUrl] = useState("");
   const [custom, setCustom] = useState("");
   const [shortUrl, setShortUrl] = useState("");
+  const [error, setError] = useState("");
+  const [urlError, setUrlError] = useState("");
 
   const newPaid = {
     longUrl: url.trim(),
@@ -19,11 +21,12 @@ const NewLink = ({ userData }) => {
   };
 
   const handelSubmit = async () => {
+    
     if (url === "") {
       //enter your url please
       return;
     }
-    const data = await fetch("http://localhost:3000/api/url/paid", {
+    const res = await fetch("http://localhost:3000/api/url/paid", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,15 +35,23 @@ const NewLink = ({ userData }) => {
       credentials: "include",
     });
 
-    const { shortUrl } = await data.json();
-    setShortUrl(shortUrl);
+    const data = await res.json();
+    if (data?.error) {
+      setCustom("");
+      setError("Keyword not available");
+      return;
+    }
+
+    setShortUrl(data.shortUrl);
     dispatch(getUrlOpen());
   };
   return (
     <>
       <AnimatePresence>
-        {getUrl && <ShortUrl urldata={shortUrl} key={5} />}
-        <div className="newlink-main">
+        <div className="newlink-shortUrl">
+          {getUrl && <ShortUrl urldata={shortUrl} key={8} />}
+        </div>
+        <div className="newlink-main" key={9}>
           <span className="newlink-heading">
             Link transformation for limitless connections
           </span>
@@ -63,9 +74,16 @@ const NewLink = ({ userData }) => {
               <input
                 type="text"
                 placeholder="doc-ezylink"
-                value={custom}
+                value={custom ? custom : error}
                 onChange={(e) => {
                   setCustom(e.target.value);
+                }}
+                onFocus={() => {
+                  setError("");
+                }}
+                style={{
+                  color: error ? "#cc0016" : "Black",
+                  backgroundColor: error ? "#ffe6e9" : "#e3effb",
                 }}
               />
             </div>
