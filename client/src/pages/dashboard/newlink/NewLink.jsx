@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import "./newlink.css";
 import { useDispatch, useSelector } from "react-redux";
+import validateUrl from "../../../validations/urlValidator";
 
 const NewLink = ({ userData }) => {
   const { getUrl } = useSelector((store) => store.shortUrlPage);
@@ -21,9 +22,10 @@ const NewLink = ({ userData }) => {
   };
 
   const handelSubmit = async () => {
-    
-    if (url === "") {
-      //enter your url please
+    const validError = validateUrl(url.trim());
+    if (validError) {
+      setUrl("");
+      setUrlError("Please enter correct URL");
       return;
     }
     const res = await fetch("http://localhost:3000/api/url/paid", {
@@ -61,10 +63,17 @@ const NewLink = ({ userData }) => {
               className="newlink-lurl"
               type="text"
               id="nlurl"
-              value={url}
+              value={url ? url : urlError}
               placeholder="https://ezylink.in/xyz/..."
               onChange={(e) => {
                 setUrl(e.target.value);
+              }}
+              onFocus={() => {
+                setUrlError("");
+              }}
+              style={{
+                color: urlError ? "#cc0016" : "Black",
+                backgroundColor: urlError ? "#ffe6e9" : "#e3effb",
               }}
             />
           </div>

@@ -3,9 +3,10 @@ import { getUrlOpen } from "../shortUrl/shortUrlSlice";
 import ShortUrl from "../shortUrl/ShortUrl";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./home.css";
 import Limit from "../../components/Limit/Limit";
+import validateUrl from "../../validations/urlValidator";
 import { AnimatePresence } from "framer-motion";
+import "./home.css";
 
 const Home = () => {
   const { getUrl } = useSelector((store) => store.shortUrlPage);
@@ -13,13 +14,16 @@ const Home = () => {
   const dispatch = useDispatch();
   const [url, setUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
+  const [urlError, setUrlError] = useState("");
   const newFree = {
     longUrl: url.trim(),
   };
 
   const handelSubmit = async () => {
-    if (url === "") {
-      //enter your url please
+    const validError = validateUrl(url.trim());
+    if (validError) {
+      setUrl("");
+      setUrlError("Please enter valid Url");
       return;
     }
 
@@ -55,11 +59,18 @@ const Home = () => {
             <label htmlFor="lurl">Enter Your Long Urls</label>
             <input
               type="text"
-              value={url}
+              value={url ? url : urlError}
               id="lurl"
               placeholder="https://ezylink.in/xyz/..."
               onChange={(e) => {
                 setUrl(e.target.value);
+              }}
+              onFocus={() => {
+                setUrlError("");
+              }}
+              style={{
+                color: urlError ? "#cc0016" : "",
+                backgroundColor: urlError ? "#ffe6e9" : "#e3effb",
               }}
             />
           </div>

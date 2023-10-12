@@ -5,7 +5,7 @@ const UrlShema = new mongoose.Schema({
   createdOn: { type: Date, default: Date.now() },
 });
 
-UrlShema.index({ createdOn: 1 }, { expireAfterSeconds: 5 });
+// UrlShema.index({ createdOn: 1 }, { expireAfterSeconds: 5 });
 
 const Url = mongoose.model("Url", UrlShema);
 
