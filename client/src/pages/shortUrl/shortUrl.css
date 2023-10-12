@@ -47,8 +47,11 @@
   background: none;
 }
 
-.shortUrl-share i:hover {
-  cursor: pointer;
+.shortUrl-close i {
+  background: none;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .shortUrl-close {
