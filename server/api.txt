@@ -1,0 +1,58 @@
+app.get("/data", async (req, res) => {
+  const email = req.body.email;
+  const findData = await NewUrl.find({ email }).select({
+    clickPerCountry: 1,
+    weeklyClick: 1,
+    totalClicked: 1,
+  });
+  const geoData = [];
+  const weekData = [];
+  let total = 0;
+  findData.map((rawData) => {
+    const { clickPerCountry, weeklyClick, totalClicked } = rawData;
+    total += totalClicked;
+    clickPerCountry.map((data) => {
+      const { country, click } = data;
+      const ndata = {
+        country,
+        click,
+      };
+
+      if (geoData.some((item) => item.country === country)) {
+        const index = geoData.findIndex((item) => item.country === country);
+        if (index != -1) {
+          geoData[index].click += click;
+        }
+      } else {
+        geoData.push(ndata);
+      }
+    });
+
+    weeklyClick.map((data) => {
+      console.log("week");
+      const { date, click } = data;
+      const ndata = {
+        date,
+        click,
+      };
+
+      if (weekData.some((item) => item.date === date)) {
+        const index = weekData.findIndex((item) => item.date === date);
+        console.log("included" + index);
+        if (index != -1) {
+          weekData[index].click += click;
+        }
+      } else {
+        weekData.push(ndata);
+      }
+    });
+  });
+
+  const clickData = {
+    total,
+    geoData,
+    weekData,
+  };
+
+  res.send(clickData);
+});
