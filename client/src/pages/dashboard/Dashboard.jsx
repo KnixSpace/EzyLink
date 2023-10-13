@@ -21,7 +21,9 @@ const Dashboard = ({ userData }) => {
       <div className="dashboard-main container-fluid">
         <div className="row">
           <div className="col-auto dash-sidebar">
-            <NavLink to={"newlink"} className="sidebar-item">New Link</NavLink>
+            <NavLink to={"newlink"} className="sidebar-item">
+              New Link
+            </NavLink>
             <NavLink to={""} className="sidebar-item">
               Home
             </NavLink>
@@ -37,6 +39,16 @@ const Dashboard = ({ userData }) => {
           </div>
         </div>
       </div>
+      <footer className="dashboard-footer row">
+        <div className="col"></div>
+        <div className="col">copyright © 2023 Ezylink</div>
+        <div className="col">
+          Developed by{" "}
+          <a href="https://github.com/KnixSpace" target="_blank">
+            Krupal Patel
+          </a>
+        </div>
+      </footer>
     </>
   );
 };
