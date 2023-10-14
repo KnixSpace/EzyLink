@@ -1,0 +1,40 @@
+.dash-menu {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .dash-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .link {
+      color: #101010;
+      padding: 10px;
+      padding-left: 15px;
+      border-radius: 10px;
+
+      &:hover {
+        color: #0276ff;
+      }
+    }
+  }
+
+  .dash-logout {
+    .link {
+      color: #101010;
+      padding: 10px;
+      padding-left: 15px;
+      border-radius: 10px;
+
+      &:hover {
+        color: #0276ff;
+      }
+    }
+  }
+}
+
+.dash-items :first-child {
+  background-color: #e3effb;
+}

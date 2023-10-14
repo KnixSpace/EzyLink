@@ -1,54 +1,25 @@
 import Logo from "../../components/logo/Logo";
 import { NavLink, Outlet } from "react-router-dom";
-import "./dashboard.css";
 import ShortUrl from "../shortUrl/ShortUrl";
+import DNavbar from "./dnavbar/DNavbar";
+import Dfooter from "./dfooter/dfooter";
+import Dmenu from "./dmenu/Dmenu";
+import "./dashboard.css";
 const Dashboard = ({ userData }) => {
   return (
     <>
-      <div className="dashboard-nav">
-        <div className="row">
-          <div className="col d-flex">
-            <Logo />
+      <div className="dash-main">
+        <DNavbar userData={userData} />
+        <div className="dash-container flex-grow-1">
+          <div className="menu-container">
+            <Dmenu />
           </div>
-          <div className="col d-flex dashboard-user">
-            <div>{userData.name}</div>
-            <div className="dashboard-user-img">
-              <img src={userData.picture} alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="dashboard-main container-fluid">
-        <div className="row">
-          <div className="col-auto dash-sidebar">
-            <NavLink to={"newlink"} className="sidebar-item">
-              New Link
-            </NavLink>
-            <NavLink to={""} className="sidebar-item">
-              Home
-            </NavLink>
-            <NavLink to={"analytics"} className="sidebar-item">
-              Analytics
-            </NavLink>
-            <NavLink to={"links"} className="sidebar-item">
-              Links
-            </NavLink>
-          </div>
-          <div className="col">
+          <div className="content-container">
             <Outlet />
           </div>
         </div>
+        <Dfooter />
       </div>
-      <footer className="dashboard-footer row">
-        <div className="col"></div>
-        <div className="col">copyright © 2023 Ezylink</div>
-        <div className="col">
-          Developed by{" "}
-          <a href="https://github.com/KnixSpace" target="_blank">
-            Krupal Patel
-          </a>
-        </div>
-      </footer>
     </>
   );
 };

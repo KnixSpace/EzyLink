@@ -22,8 +22,8 @@ const DHome = () => {
     ["Brazil", 400],
     ["Canada", 500],
     ["France", 600],
-    ["RU", 400],
-    ["India",800]
+    ["RU", 700],
+    ["India", 800],
   ];
 
   const clo = {
@@ -32,27 +32,24 @@ const DHome = () => {
 
   return (
     <>
-      <div className="dash-home responsive">
-        <div className="box1">
-          <span className="number">125</span>
-          <span className="text">Total Clicks</span>
-        </div>
-        <div className="box2">
-          <Chart
+      <div className="dhome">
+        <div className="box box-1">1</div>
+        <div className="box box-2">
+          {/* <Chart
             chartType="LineChart"
             data={data}
             options={options}
             legendToggle
             style={{ height: "100%", width: "100%" }}
-          />
+          /> */}
         </div>
-        <div className="box3">
-          <Chart
+        <div className="box box-3">
+          {/* <Chart
             chartType="GeoChart"
             options={clo}
             style={{ height: "100%", width: "100%" }}
             data={geoData}
-          />
+          /> */}
         </div>
       </div>
     </>

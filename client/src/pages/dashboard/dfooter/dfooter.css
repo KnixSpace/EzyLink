@@ -1,0 +1,9 @@
+.dash-footer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 5px 50px;
+}
