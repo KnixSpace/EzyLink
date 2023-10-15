@@ -34,26 +34,33 @@ const DHome = () => {
     <>
       <div className="dhome">
         <div className="box box-1">
-          <span>1</span>
-          <span>2</span>
+          <span className="box-title">Total Hyperlink Accessed</span>
+          <span className="link-count">12589411+</span>
         </div>
         <div className="box box-2">
-          {/* <Chart
-            chartType="LineChart"
-            data={data}
-            options={options}
-            legendToggle
-            style={{ height: "100%", width: "100%" }}
-          /> */}
+          <span className="box-title">Weekly data</span>
+          <div className="box-chart">
+            <Chart
+              className="char"
+              chartType="LineChart"
+              data={data}
+              options={options}
+              legendToggle
+              style={{ height: "100%", width: "100%" }}
+            />
+          </div>
         </div>
         <div className="box box-3">
-          {/* <Chart
-            className="char"
-            chartType="GeoChart"
-            options={clo}
-            style={{ height: "100%", width: "100%" }}
-            data={geoData}
-          /> */}
+          <span className="box-title">Geo data</span>
+          <div className="box-chart">
+            <Chart
+              className="char"
+              chartType="GeoChart"
+              options={clo}
+              style={{ height: "100%", width: "100%" }}
+              data={geoData}
+            />
+          </div>
         </div>
       </div>
     </>
