@@ -4,7 +4,7 @@ const DNavbar = ({ userData }) => {
   return (
     <div className="dnavbar">
       <div className="dnav-logo">
-        <span class="material-icons-outlined md-18">menu</span>
+        <span className="material-icons-outlined md-18">menu</span>
         <Logo />
       </div>
       <div className="dnav-links">

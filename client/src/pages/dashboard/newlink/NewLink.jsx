@@ -53,33 +53,32 @@ const NewLink = ({ userData }) => {
         <div className="newlink-shortUrl">
           {getUrl && <ShortUrl urldata={shortUrl} key={8} />}
         </div>
-        <div className="newlink-main" key={9}>
+        <div className="newlink-container" key={9}>
           <span className="newlink-heading">
             Link transformation for limitless connections
           </span>
-          <div className="newlink-input d-grid">
-            <label htmlFor="nlurl">Enter Your Long Urls</label>
-            <input
-              className="newlink-lurl"
-              type="text"
-              id="nlurl"
-              value={url ? url : urlError}
-              placeholder="https://ezylink.in/xyz/..."
-              onChange={(e) => {
-                setUrl(e.target.value);
-              }}
-              onFocus={() => {
-                setUrlError("");
-              }}
-              style={{
-                color: urlError ? "#cc0016" : "Black",
-                backgroundColor: urlError ? "#ffe6e9" : "#e3effb",
-              }}
-            />
-          </div>
-          <div className="newlink-custom">
-            <div className="custom-label">Custom Url</div>
-            <div className="custom-input flex-grow-1">
+          <div className="newlink-inner">
+            <div className="url-input">
+              <label htmlFor="lurl">Enter Your Long Urls</label>
+              <input
+                type="text"
+                id="lurl"
+                value={url ? url : urlError}
+                placeholder="https://ezylink.in/xyz/..."
+                onChange={(e) => {
+                  setUrl(e.target.value);
+                }}
+                onFocus={() => {
+                  setUrlError("");
+                }}
+                style={{
+                  color: urlError ? "#cc0016" : "Black",
+                  backgroundColor: urlError ? "#ffe6e9" : "#e3effb",
+                }}
+              />
+            </div>
+            <div className="custom-input">
+              <span>Custom</span>
               <input
                 type="text"
                 placeholder="doc-ezylink"
@@ -96,9 +95,11 @@ const NewLink = ({ userData }) => {
                 }}
               />
             </div>
-          </div>
-          <div className="newlink-submit">
-            <button onClick={handelSubmit}>Submit</button>
+            <div className="newlink-submit">
+              <button className="border-0" onClick={handelSubmit}>
+                Submit
+              </button>
+            </div>
           </div>
         </div>
       </AnimatePresence>

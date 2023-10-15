@@ -30,7 +30,7 @@
 @media (max-width: 1536px) {
   .dhome {
     grid-template-columns: 1fr;
-    grid-template-rows: auto 700px 700px;
+    grid-template-rows: auto 600px 600px;
   }
 
   .box-1 {
@@ -45,30 +45,30 @@
 
 @media (max-width: 1280px) {
   .dhome {
-    grid-template-rows: auto 600px 600px;
+    grid-template-rows: auto 500px 500px;
   }
 }
 
 @media (max-width: 1020px) {
   .dhome {
-    grid-template-rows: auto 500px 500px;
+    grid-template-rows: auto 400px 400px;
   }
 }
 
 @media (max-width: 768px) {
   .dhome {
-    grid-template-rows: auto 400px 400px;
+    grid-template-rows: auto 300px 300px;
   }
 }
 
 @media (max-width: 640px) {
   .dhome {
-    grid-template-rows: auto 300px 300px;
+    grid-template-rows: auto 200px 200px;
   }
 }
 
 @media (max-width: 475px) {
   .dhome {
-    grid-template-rows: auto 200px 200px;
+    grid-template-rows: auto 150px 150px;
   }
 }

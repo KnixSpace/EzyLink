@@ -1,37 +1,47 @@
-.newlink-main {
+.newlink-container {
   display: flex;
   width: 100%;
   height: 100%;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 40px;
+}
+.newlink-shortUrl {
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .newlink-heading {
-  color: #101010;
-  font-size: 32px;
+  font-size: 40px;
+  font-weight: 600;
+  padding: 10px;
+  text-align: center;
+}
+
+.newlink-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(50px, 100%), 700px));
+  gap: 20px;
+}
+
+.url-input {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+.url-input label {
   font-weight: 500;
-  line-height: normal;
-  padding: 30px 0px;
 }
 
-.newlink-input {
-  width: 600px;
-  padding: 15px 0px;
-}
-
-.newlink-input label {
-  font-size: 18px;
-  font-weight: 500;
-  padding-bottom: 10px;
-}
-
-.newlink-lurl {
+.url-input input {
   height: 50px;
+  padding: 15px;
   border-radius: 10px;
   border: 1px solid #a6b3c7;
   background: #e3effb;
-  padding: 15px;
 
   &:focus {
     outline: #0276ff solid 1px;
@@ -43,38 +53,20 @@
   }
 }
 
-.newlink-custom {
-  display: flex;
-  gap: 30px;
-  width: 600px;
-  padding: 15px 0px;
-}
-
-.custom-input input {
-  width: 100%;
-  height: 50px;
-  border-radius: 10px;
-  border: 1px solid #a6b3c7;
-  background: #e3effb;
-  padding: 15px;
-
-  &:focus {
-    outline: #0276ff solid 1px;
-    outline-offset: -1px;
-  }
-
-  ::placeholder {
-    color: #a6b3c7;
-  }
-}
-
-.custom-label {
-  display: flex;
-  height: 50px;
-  padding: 0px 40px;
-  border-radius: 10px;
+.custom-input {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-auto-flow: column;
+  gap: 20px;
   align-items: center;
+}
+
+.custom-input span {
+  text-align: center;
   font-size: 18px;
+  font-weight: 500;
+  padding: 12px 50px;
+  border-radius: 10px;
   background-size: 400%;
   background-image: linear-gradient(
     45deg,
@@ -99,22 +91,29 @@
   }
 }
 
-.newlink-submit {
-  padding: 15px 0px;
+.custom-input input {
+  height: 50px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #a6b3c7;
+  background: #e3effb;
+
+  &:focus {
+    outline: #0276ff solid 1px;
+    outline-offset: -1px;
+  }
+
+  ::placeholder {
+    color: #a6b3c7;
+  }
 }
 
 .newlink-submit button {
-  width: 600px;
+  height: 50px;
+  width: 100%;
+  font-size: 18px;
   padding: 10px;
-  border: 0px;
   border-radius: 10px;
   background: #0276ff;
   color: #e3effb;
-  font-size: 18px;
-}
-
-.newlink-shortUrl {
-  position: fixed;
-  top: 0;
-  left: 0;
 }

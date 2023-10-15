@@ -37,22 +37,13 @@
   background: none;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1024px) {
   .dash-link-text {
     display: none;
-  }
-
-  .material-icons-outlined.md-18 {
-    font-size: 18px;
   }
 }
 
-
-@media screen and (max-width: 1280px) {
-  .dash-link-text {
-    display: none;
-  }
-
+@media screen and (max-width: 640px) {
   .material-icons-outlined.md-18 {
     font-size: 18px;
   }
