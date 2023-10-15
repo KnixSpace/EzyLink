@@ -33,7 +33,10 @@ const DHome = () => {
   return (
     <>
       <div className="dhome">
-        <div className="box box-1">1</div>
+        <div className="box box-1">
+          <span>1</span>
+          <span>2</span>
+        </div>
         <div className="box box-2">
           {/* <Chart
             chartType="LineChart"
@@ -45,6 +48,7 @@ const DHome = () => {
         </div>
         <div className="box box-3">
           {/* <Chart
+            className="char"
             chartType="GeoChart"
             options={clo}
             style={{ height: "100%", width: "100%" }}

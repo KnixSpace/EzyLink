@@ -1,10 +1,11 @@
 import Logo from "../../../components/logo/Logo";
 import "./dnavbar.css";
-const DNavbar = ({userData}) => {
+const DNavbar = ({ userData }) => {
   return (
     <div className="dnavbar">
       <div className="dnav-logo">
-        <Logo/>
+        <span class="material-icons-outlined md-18">menu</span>
+        <Logo />
       </div>
       <div className="dnav-links">
         <div className="dnav-user">

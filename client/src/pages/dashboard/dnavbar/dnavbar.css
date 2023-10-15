@@ -4,23 +4,56 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
-  .dnav-logo {
-    display: flex;
-    align-items: center;
-  }
+}
 
-  .dnav-user {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    font-weight: 500;
-  }
+.dnav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 15px;
+}
 
+.dnav-user {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-weight: 500;
+}
+
+.dnav-user img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 1536px) {
   .dnav-user img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .dnav-user img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .dnav-user span {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .material-icons-outlined.md-18 {
+    font-size: 18px;
+  }
+  .dnavbar {
+    padding: 20px 20px 10px 20px;
   }
 }
