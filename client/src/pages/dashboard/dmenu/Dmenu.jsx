@@ -1,5 +1,5 @@
 import "material-icons/iconfont/material-icons.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./dmenu.css";
 
 const Dmenu = () => {

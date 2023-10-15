@@ -2,12 +2,12 @@
   height: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   gap: 20px;
 }
 
 .box {
   padding: 15px;
-  /* border: 1px solid orangered; */
   background: none;
   border-radius: 10px;
   background-color: white;
@@ -21,10 +21,11 @@
 .box-1 {
   grid-column: span 2;
   display: grid;
-  grid-template-rows: 1fr 2fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
 }
 
-.box-1 .link-count {
+.link-count {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,6 +83,10 @@
   .dhome {
     grid-template-rows: auto 400px 400px;
   }
+
+  .link-count {
+    font-size: 40px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -91,6 +96,10 @@
   .box-title {
     font-size: 16px;
     font-weight: 500;
+  }
+
+  .link-count {
+    font-size: 30px;
   }
 }
 
@@ -102,6 +111,10 @@
   .box-title {
     font-size: 14px;
     font-weight: 500;
+  }
+
+  .link-count {
+    font-size: 27px;
   }
 }
 
