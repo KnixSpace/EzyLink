@@ -22,7 +22,7 @@ router.get("/api/login/failed", (req, res) => {
   });
 });
 
-router.get("api/logout", (req, res) => {
+router.get("/api/logout", (req, res) => {
   req.logout((err) => {
     if (err) {
       return next(err);

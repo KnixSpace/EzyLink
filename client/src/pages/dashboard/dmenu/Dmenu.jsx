@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import "./dmenu.css";
 
 const Dmenu = () => {
-  const handelLogout = async () => {
-    const res = await fetch("http://localhost:3000/auth/api/logout");
+  const handelLogout = () => {
+    window.open("http://localhost:3000/auth/api/logout", "_self");
   };
   return (
     <>
