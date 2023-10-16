@@ -11,7 +11,7 @@ const DNavbar = ({ userData }) => {
     <div className="dnavbar">
       <div className="dnav-logo">
         <span
-          className="material-icons-outlined"
+          className="material-icons-outlined dnav-menu"
           onClick={() => {
             dispatch(smMenuToggle(!isSmallMenu));
           }}
@@ -19,7 +19,7 @@ const DNavbar = ({ userData }) => {
           menu
         </span>
         <span
-          className="material-icons-outlined"
+          className="material-icons-outlined dnav-menu"
           onClick={() => {
             dispatch(lgMenuToggle(!isLargeMenu));
           }}

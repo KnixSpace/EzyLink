@@ -9,8 +9,7 @@
 .dnav-logo {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding-left: 15px;
+  gap: 5px;
 }
 
 .dnav-logo span:hover {
@@ -19,6 +18,15 @@
 
 .dnav-logo :nth-child(1) {
   display: none;
+}
+
+.dnav-menu {
+  padding: 15px;
+  border-radius: 50%;
+}
+
+.dnav-menu:hover {
+  background-color: #e3effb;
 }
 
 .dnav-user {

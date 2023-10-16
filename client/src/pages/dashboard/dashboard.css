@@ -10,13 +10,13 @@
 }
 
 .menu-container {
-  padding: 5px 20px 5px 50px;
+  padding: 5px 10px 5px 50px;
   /* border-right: 1px solid #0276ff; */
 }
 
 .content-container {
   width: 100%;
-  padding: 5px 50px 5px 20px;
+  padding: 5px 50px 5px 10px;
 }
 
 @media screen and (max-width: 768px) {
