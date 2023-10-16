@@ -1,8 +1,6 @@
-import Logo from "../../components/logo/Logo";
 import { NavLink, Outlet } from "react-router-dom";
-import ShortUrl from "../shortUrl/ShortUrl";
 import DNavbar from "./dnavbar/DNavbar";
-import Dfooter from "./dfooter/dfooter";
+import Dfooter from "./dfooter/Dfooter";
 import Dmenu from "./dmenu/Dmenu";
 import "./dashboard.css";
 const Dashboard = ({ userData }) => {
