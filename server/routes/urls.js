@@ -86,10 +86,10 @@ router.post("/api/url/paid", ensurAuthenticated, async (req, res) => {
   await newUrlData.save();
 });
 
-router.get("/api/url/dashboard/data", async (req, res) => {
-  const geoData = [];
+router.post("/api/url/dashboard/data", async (req, res) => {
+  const geoData = [["country", "click"]];
   const lineData = [];
-  const total = 0;
+  let total = 0;
   const { email } = req.body;
   const findData = await UrlData.find({ email }).select({
     totalClicked: 1,
@@ -101,14 +101,13 @@ router.get("/api/url/dashboard/data", async (req, res) => {
     total += totalClicked;
     clickPerCountry.map((data) => {
       const { country, click } = data;
-      const ndata = {
-        country,
-        click,
-      };
-      if (geoData.some((item) => item.country === country)) {
-        const index = geoData.findIndex((item) => item.country === country);
+      const ndata = [country, click];
+      if (geoData.some(([icountry, _]) => icountry === country)) {
+        const index = geoData.findIndex(
+          ([icountry, _]) => icountry === country
+        );
         if (index != -1) {
-          geoData[index].click += click;
+          geoData[index][1] += click;
         }
       } else {
         geoData.push(ndata);
@@ -117,27 +116,22 @@ router.get("/api/url/dashboard/data", async (req, res) => {
 
     weeklyClick.map((data) => {
       const { date, click } = data;
-      const ndata = {
-        date,
-        click,
-      };
-      if (lineData.some((item) => item.date === date)) {
-        const index = lineData.findIndex((item) => item.data === date);
+      const ndata = [date, click];
+      if (lineData.some(([idate, _]) => idate === date)) {
+        const index = lineData.findIndex(([idate, _]) => idate === date);
         if (index != -1) {
-          lineData[index].click += click;
+          lineData[index][1] += click;
         }
       } else {
         lineData.push(ndata);
       }
     });
   });
-
   const clickData = {
     total,
     geoData,
     lineData,
   };
-
   res.send(JSON.stringify(clickData));
 });
 
@@ -173,8 +167,10 @@ router.get("/api/url/link/all", async (req, res) => {
   res.send(JSON.stringify(linkData));
 });
 
-router.get("/api/url/link/analytics", async (req, res) => {
+router.post("/api/url/link/analytics", async (req, res) => {
   let isActive = false;
+  const lineData = [];
+  const geoData = ["country", "click"];
   const { email, shortUrl } = req.body;
   const findData = await UrlData.findOne({ email, shortUrl }).select({
     createdOn: 1,
@@ -188,6 +184,32 @@ router.get("/api/url/link/analytics", async (req, res) => {
   const { createdOn, longUrl, totalClicked, weeklyClick, clickPerCountry } =
     findData;
 
+  clickPerCountry.map((data) => {
+    const { country, click } = data;
+    const ndata = [country, click];
+    if (geoData.some(([icountry, _]) => icountry === country)) {
+      const index = geoData.findIndex(([icountry, _]) => icountry === country);
+      if (index != -1) {
+        geoData[index][1] += click;
+      }
+    } else {
+      geoData.push(ndata);
+    }
+  });
+
+  weeklyClick.map((data) => {
+    const { date, click } = data;
+    const ndata = [date, click];
+    if (lineData.some(([idate, _]) => idate === date)) {
+      const index = lineData.findIndex(([idate, _]) => idate === date);
+      if (index != -1) {
+        lineData[index][1] += click;
+      }
+    } else {
+      lineData.push(ndata);
+    }
+  });
+
   const findUrl = await Url.findOne({ shortUrl });
 
   if (findUrl) {
@@ -200,8 +222,8 @@ router.get("/api/url/link/analytics", async (req, res) => {
     shortUrl,
     longUrl,
     totalClicked,
-    weeklyClick,
-    clickPerCountry,
+    lineData,
+    geoData,
   };
 
   res.send(JSON.stringify(linkAnalytics));
