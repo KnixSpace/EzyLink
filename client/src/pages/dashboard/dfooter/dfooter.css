@@ -7,3 +7,34 @@
   font-weight: 500;
   padding: 10px 50px;
 }
+
+@media screen and (max-width: 768px) {
+  .dash-footer {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .dash-footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dash-blank {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .dash-footer {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .dash-footer :nth-child(2){
+    order: 2;
+  }
+
+  .dash-footer :nth-child(3){
+    order: 1;
+  }
+}
