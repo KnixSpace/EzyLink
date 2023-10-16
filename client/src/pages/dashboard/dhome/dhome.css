@@ -26,6 +26,12 @@
   grid-template-rows: auto 1fr;
 }
 
+.box-1-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .link-count {
   display: flex;
   align-items: center;

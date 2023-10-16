@@ -34,7 +34,10 @@ const DHome = () => {
     <>
       <div className="dhome">
         <div className="box box-1">
-          <span className="box-title">Total Hyperlink Accessed</span>
+          <div className="box-1-inner">
+            <span className="box-title">Total Hyperlink Accessed</span>
+            <span class="material-icons-outlined">refresh</span>
+          </div>
           <span className="link-count">12589411+</span>
         </div>
         <div className="box box-2">
