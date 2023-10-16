@@ -16,10 +16,6 @@
   cursor: pointer;
 }
 
-.dnav-logo :nth-child(1) {
-  display: none;
-}
-
 .dnav-menu {
   padding: 15px;
   border-radius: 50%;
@@ -75,13 +71,5 @@
 @media screen and (max-width: 640px) {
   .dnavbar {
     padding: 20px 20px 10px 20px;
-  }
-
-  .dnav-logo :nth-child(1) {
-    display: initial;
-  }
-
-  .dnav-logo :nth-child(2) {
-    display: none;
   }
 }
