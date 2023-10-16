@@ -11,7 +11,7 @@
 
 .menu-container {
   padding: 5px 20px 5px 50px;
-  border-right: 1px solid #0276ff;
+  /* border-right: 1px solid #0276ff; */
 }
 
 .content-container {
@@ -19,17 +19,16 @@
   padding: 5px 50px 5px 20px;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 768px) {
   .menu-container {
-    padding: 5px 10px 5px 20px;
+    padding: 5px 10px 5px 30px;
   }
-
   .content-container {
-    padding: 5px 20px 5px 10px;
+    padding: 5px 30px 5px 10px;
   }
 }
 
-@media (max-width: 640px) {
+@media screen and (max-width: 640px) {
   .menu-container {
     display: none;
   }
