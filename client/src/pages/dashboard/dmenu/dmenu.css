@@ -17,10 +17,12 @@
   align-items: center;
   color: #101010;
   padding: 10px 15px;
+  border-radius: 10px;
   gap: 20px;
 
   &:hover {
     color: #0276ff;
+    background-color: #ececec;
   }
 }
 
@@ -29,14 +31,22 @@
 }
 
 .new {
+  display: flex;
+  align-items: center;
+  color: #101010;
+  padding: 10px 15px;
   border-radius: 10px;
+  gap: 20px;
   background-color: #e3effb;
+
+  &:hover {
+    color: #0276ff;
+  }
 }
 
 .new span {
   background: none;
 }
-
 
 @media screen and (max-width: 1024px) {
   /* .dash-link-text {
@@ -45,5 +55,4 @@
 }
 
 @media screen and (max-width: 640px) {
-  
 }

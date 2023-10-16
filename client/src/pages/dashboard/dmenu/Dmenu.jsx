@@ -11,7 +11,7 @@ const Dmenu = () => {
     <>
       <div className="dash-menu">
         <div className="dash-items">
-          <Link to={"newlink"} className="link new">
+          <Link to={"newlink"} className="new">
             <span className="material-icons-outlined md-18">add_link</span>
             {isLargeMenu ? (
               <span className="dash-link-text">New Link</span>
