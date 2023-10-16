@@ -17,7 +17,7 @@
   align-items: center;
   color: #101010;
   padding: 10px 15px;
-  gap: 10px;
+  gap: 20px;
 
   &:hover {
     color: #0276ff;
@@ -37,12 +37,13 @@
   background: none;
 }
 
+
 @media screen and (max-width: 1024px) {
-  .dash-link-text {
+  /* .dash-link-text {
     display: none;
-  }
+  } */
 }
 
 @media screen and (max-width: 640px) {
- 
+  
 }

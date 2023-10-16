@@ -1,8 +1,9 @@
 import "material-icons/iconfont/material-icons.css";
 import { Link, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./dmenu.css";
-
 const Dmenu = () => {
+  const { isLargeMenu } = useSelector((store) => store.lgMenuPage);
   const handelLogout = () => {
     window.open("http://localhost:3000/auth/api/logout", "_self");
   };
@@ -12,27 +13,33 @@ const Dmenu = () => {
         <div className="dash-items">
           <Link to={"newlink"} className="link new">
             <span className="material-icons-outlined md-18">add_link</span>
-            <span className="dash-link-text">New Link</span>
+            {isLargeMenu ? (
+              <span className="dash-link-text">New Link</span>
+            ) : null}
           </Link>
           <Link to={""} className="link">
             <span className="material-icons-outlined md-18">home</span>
-            <span className="dash-link-text">Home</span>
+            {isLargeMenu ? <span className="dash-link-text">Home</span> : null}
           </Link>
           <Link to={"links"} className="link">
             <span className="material-icons-outlined md-18">link</span>
-            <span className="dash-link-text">All Links</span>
+            {isLargeMenu ? (
+              <span className="dash-link-text">All Links</span>
+            ) : null}
           </Link>
           <Link to={"analytics"} className="link">
             <span className="material-icons-outlined md-18">insights</span>
-            <span className="dash-link-text">Analytics</span>
+            {isLargeMenu ? (
+              <span className="dash-link-text">Analytics</span>
+            ) : null}
           </Link>
         </div>
         <div className="dash-logout">
-          <Link className="link">
+          <Link className="link" onClick={handelLogout}>
             <span className="material-icons-outlined md-18">logout</span>
-            <span className="dash-link-text" onClick={handelLogout}>
-              Logout
-            </span>
+            {isLargeMenu ? (
+              <span className="dash-link-text">Logout</span>
+            ) : null}
           </Link>
         </div>
       </div>
