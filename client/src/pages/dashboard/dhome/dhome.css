@@ -24,6 +24,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
+  gap: 10px;
 }
 
 .box-1-inner {
@@ -47,6 +48,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
+  gap: 10px;
 }
 
 .box-chart {
@@ -57,6 +59,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.refs {
+  cursor: pointer;
+  transition: transform 0.5s;
 }
 
 @media (max-width: 1536px) {

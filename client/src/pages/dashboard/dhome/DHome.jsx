@@ -2,9 +2,11 @@ import { Chart } from "react-google-charts";
 import "./dhome.css";
 import { useEffect, useState } from "react";
 const DHome = ({ userData }) => {
+  const [rotation, setRotation] = useState(0);
+  const [refresh, setRefresh] = useState(true);
   const [total, setTotal] = useState("");
-  const [geoData, setGeoData] = useState([]);
-  const [lineData, setLineData] = useState([]);
+  const [geoDatas, setGeoDatas] = useState([]);
+  const [kdata, setKdata] = useState([]);
   useEffect(() => {
     const userId = {
       email: userData.email,
@@ -23,42 +25,70 @@ const DHome = ({ userData }) => {
       );
       const { total, geoData, lineData } = await rawData.json();
       setTotal(total);
+      setGeoDatas(geoData);
+      setKdata(lineData);
     };
     getData();
-  }, []);
+  }, [refresh]);
+
+  const color = {
+    colorAxis: { colors: ["#e3effb", "#0276ff"] },
+  };
+
+  const linedatas = [
+    [{ type: "date", label: "Day" }, "Clicks"],
+    [new Date("10/09/2023"), 2],
+  ];
+
+  kdata.map((item) => {
+    const { date, click } = item;
+    linedatas.push([new Date(date), click]);
+  });
+
+  const handleRotation = () => {
+    setRotation(rotation + 360);
+  };
+
   return (
     <>
       <div className="dhome">
         <div className="box box-1">
           <div className="box-1-inner">
             <span className="box-title">Total Hyperlink Accessed </span>
-            <span className="material-icons-outlined">refresh</span>
+            <span
+              className="material-icons-outlined refs"
+              onClick={() => {
+                setRefresh(!refresh);
+                handleRotation();
+              }}
+              style={{ transform: `rotate(${rotation}deg)` }}
+            >
+              refresh
+            </span>
           </div>
           <span className="link-count">{total}</span>
         </div>
         <div className="box box-2">
           <span className="box-title">Weekly data</span>
           <div className="box-chart">
-            {/* <Chart
+            <Chart
               className="char"
-              chartType="LineChart"
-              data={data}
-              options={options}
-              legendToggle
+              chartType="Line"
               style={{ height: "100%", width: "100%" }}
-            /> */}
+              data={linedatas}
+            />
           </div>
         </div>
         <div className="box box-3">
           <span className="box-title">Geo data</span>
           <div className="box-chart">
-            {/* <Chart
+            <Chart
               className="char"
               chartType="GeoChart"
-              options={clo}
+              options={color}
               style={{ height: "100%", width: "100%" }}
-              data={geoData}
-            /> */}
+              data={geoDatas}
+            />
           </div>
         </div>
       </div>
@@ -66,32 +96,3 @@ const DHome = ({ userData }) => {
   );
 };
 export default DHome;
-
-// const data = [
-//   ["Year", "Sales", "Expenses"],
-//   ["2004", 1000, 400],
-//   ["2005", 1170, 460],
-//   ["2006", 660, 1120],
-//   ["2007", 1030, 540],
-// ];
-
-// const options = {
-//   title: "Company Performance",
-//   curveType: "function",
-//   legend: { position: "bottom" },
-// };
-
-// const geoData = [
-//   ["Country", "Popularity"],
-//   ["Germany", 200],
-//   ["United States", 300],
-//   ["Brazil", 400],
-//   ["Canada", 500],
-//   ["France", 600],
-//   ["RU", 700],
-//   ["India", 800],
-// ];
-
-// const clo = {
-//   colorAxis: { colors: ["#e3effb", "#0276ff"] },
-// };
