@@ -25,6 +25,11 @@
   background-color: #ececec;
 }
 
+.dnav-title {
+  font-size: 30px;
+  font-weight: 600;
+}
+
 .dnav-user {
   display: flex;
   align-items: center;

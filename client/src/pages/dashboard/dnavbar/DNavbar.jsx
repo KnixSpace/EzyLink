@@ -1,3 +1,4 @@
+import defaultPic from "../../../assets/default.svg";
 import Logo from "../../../components/logo/Logo";
 import { useDispatch, useSelector } from "react-redux";
 import { lgMenuToggle } from "./dlmSlice";
@@ -18,10 +19,11 @@ const DNavbar = ({ userData }) => {
         </span>
         <Logo />
       </div>
+      <span className="dnav-title">Dashboard</span>
       <div className="dnav-links">
         <div className="dnav-user">
           <span>{userData.name}</span>
-          <img src={userData.picture} alt="" />
+          <img src={userData.picture ? userData.picture : defaultPic} alt="" />
         </div>
       </div>
     </div>
