@@ -135,8 +135,7 @@ router.post("/api/url/dashboard/data", async (req, res) => {
   res.send(JSON.stringify(clickData));
 });
 
-router.get("/api/url/link/all", async (req, res) => {
-  const allData = [];
+router.post("/api/url/link/all", async (req, res) => {
   const { email } = req.body;
   const findData = await UrlData.find({ email }).select({
     createdOn: 1,
@@ -144,27 +143,25 @@ router.get("/api/url/link/all", async (req, res) => {
     totalClicked: 1,
   });
 
-  findData.map(async (rawData) => {
-    const { createdOn, shortUrl, totalClicked } = rawData;
-    let isActive = false;
-    const findUrl = await Url.findOne({ shortUrl });
-    if (findUrl) {
-      isActive = true;
-    }
-    const nData = {
-      isActive,
-      createdOn,
-      shortUrl,
-      totalClicked,
-    };
-    allData.push(nData);
-  });
+  const allData = await Promise.all(
+    findData.map(async (rawData) => {
+      const { createdOn, shortUrl, totalClicked } = rawData;
+      let isActive = false;
+      const findUrl = await Url.findOne({ shortUrl });
 
-  const linkData = {
-    allData,
-  };
+      if (findUrl) {
+        isActive = true;
+      }
 
-  res.send(JSON.stringify(linkData));
+      return {
+        isActive,
+        createdOn,
+        shortUrl,
+        totalClicked,
+      };
+    })
+  );
+  res.send(JSON.stringify(allData));
 });
 
 router.post("/api/url/link/analytics", async (req, res) => {
