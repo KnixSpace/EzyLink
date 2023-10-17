@@ -11,7 +11,7 @@ const updateData = async (shortUrl) => {
   const daysToSubtract = (today.getDay() + 6) % 7;
   const previousMonday = new Date();
   previousMonday.setDate(today.getDate() - daysToSubtract);
-  const date = previousMonday.toLocaleDateString();
+  const date = previousMonday.toLocaleDateString('en-US');
 
   //click logic
 
