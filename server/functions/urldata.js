@@ -2,16 +2,26 @@ const mongoose = require("mongoose");
 const { UrlData } = require("../models/paidUrl");
 const updateData = async (shortUrl) => {
   // fetch user ip for country
-  const ipData = await fetch("https://ipapi.co/json");
+  const ipData = await fetch(
+    "https://ipapi.co/json/?key=cHyPtxjkU8YjP9qLOiSpLVGYyEWdyCgWycVKuoAaQGRuxQVH9O"
+  );
   const res = await ipData.json();
-  const country = res.country_name;
+  let country = res.country_name;
+  // console.log(country, res);
+
+  if (!country) {
+    const ipData = await fetch("http://ip-api.com/json/?fields=status,country");
+    const res = await ipData.json();
+    country = res.country;
+  }
+  // console.log(country, res);
 
   // previous monday
   const today = new Date();
   const daysToSubtract = (today.getDay() + 6) % 7;
   const previousMonday = new Date();
   previousMonday.setDate(today.getDate() - daysToSubtract);
-  const date = previousMonday.toLocaleDateString('en-US');
+  const date = previousMonday.toLocaleDateString("en-US");
 
   //click logic
 
