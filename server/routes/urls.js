@@ -116,11 +116,11 @@ router.post("/api/url/dashboard/data", async (req, res) => {
 
     weeklyClick.map((data) => {
       const { date, click } = data;
-      const ndata = [date, click];
-      if (lineData.some(([idate, _]) => idate === date)) {
-        const index = lineData.findIndex(([idate, _]) => idate === date);
+      const ndata = { date, click };
+      if (lineData.some((item) => item.date === date)) {
+        const index = lineData.findIndex((item) => item.date === date);
         if (index != -1) {
-          lineData[index][1] += click;
+          lineData[index].click += click;
         }
       } else {
         lineData.push(ndata);
@@ -199,11 +199,11 @@ router.post("/api/url/link/analytics", async (req, res) => {
 
   weeklyClick.map((data) => {
     const { date, click } = data;
-    const ndata = [date, click];
-    if (lineData.some(([idate, _]) => idate === date)) {
-      const index = lineData.findIndex(([idate, _]) => idate === date);
+    const ndata = { date, click };
+    if (lineData.some((item) => item.date === date)) {
+      const index = lineData.findIndex((item) => item.date === date);
       if (index != -1) {
-        lineData[index][1] += click;
+        lineData[index].click += click;
       }
     } else {
       lineData.push(ndata);
