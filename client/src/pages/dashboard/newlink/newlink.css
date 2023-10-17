@@ -9,7 +9,6 @@
   border-radius: 10px;
   box-shadow: 0px 4px 25px -1px #e3effb;
   gap: 40px;
-  object-fit: cover;
 }
 .newlink-shortUrl {
   position: fixed;

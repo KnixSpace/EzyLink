@@ -1,7 +1,7 @@
 import NewLink from "./pages/dashboard/newlink/NewLink";
 import DHome from "./pages/dashboard/dhome/DHome";
 import Analytics from "./pages/dashboard/analytics/Analytics";
-import ULink from "./pages/dashboard/links/ULink";
+import Alink from "./pages/dashboard/dalink/Alink";
 import About from "./pages/about/About";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Navigation from "./pages/Navigation/Navigation";
@@ -45,7 +45,7 @@ function App() {
               <Route path="" element={<DHome userData={user} />} />
               <Route path="newlink" element={<NewLink userData={user} />} />
               <Route path="analytics" element={<Analytics />} />
-              <Route path="links" element={<ULink />} />
+              <Route path="links" element={<Alink userData={user} />} />
             </Route>
           </Route>
         </Routes>
