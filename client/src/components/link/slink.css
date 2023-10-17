@@ -1,0 +1,21 @@
+.slink-container {
+  display: grid;
+  grid-template-columns: 110px 0.5fr 450px auto 160px auto;
+  grid-auto-flow: column;
+  padding: 10px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  border: 1px solid #0276ff;
+}
+
+.slink-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+}
+
+.slink-title {
+  color: #a6b3c7;
+}
