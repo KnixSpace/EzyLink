@@ -9,6 +9,7 @@
   border-radius: 10px;
   box-shadow: 0px 4px 25px -1px #e3effb;
   gap: 40px;
+  object-fit: cover;
 }
 .newlink-shortUrl {
   position: fixed;
@@ -33,9 +34,10 @@
 }
 .newlink-inner {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(50px, 100%), 700px));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 700px));
   gap: 30px;
   padding: 15px;
+  overflow: hidden;
 }
 
 .url-input {
@@ -58,10 +60,6 @@
   &:focus {
     outline: #0276ff solid 1px;
     outline-offset: -1px;
-  }
-
-  ::placeholder {
-    color: #a6b3c7;
   }
 }
 
@@ -104,6 +102,7 @@
 }
 
 .custom-input input {
+  width: 100%;
   height: 50px;
   padding: 15px;
   border-radius: 10px;
@@ -114,10 +113,10 @@
     outline: #0276ff solid 1px;
     outline-offset: -1px;
   }
+}
 
-  ::placeholder {
-    color: #a6b3c7;
-  }
+.place::placeholder {
+  color: #a6b3c7;
 }
 
 .newlink-submit button {
@@ -128,4 +127,71 @@
   border-radius: 10px;
   background: #0276ff;
   color: #e3effb;
+}
+
+@media (max-width: 1024px) {
+  .newlink-heading {
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  .newlink-heading span {
+    font-weight: 600;
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+  .dash-container {
+    background-color: rgba(255, 68, 0, 0.295);
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .place::placeholder {
+    font-size: 14px;
+  }
+
+  .place {
+    font-size: 14px;
+  }
+
+  .newlink-heading {
+    font-size: 20px;
+  }
+
+  .link-slogan {
+    font-size: 16px;
+  }
+
+  .newlink-inner {
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .url-input input {
+    height: 40px;
+    padding: 10px 15px;
+  }
+
+  .custom-input {
+    gap: 20px;
+  }
+
+  .custom-input span {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .custom-input input {
+    height: 40px;
+    padding: 10px 15px;
+  }
+
+  .newlink-submit button {
+    height: 40px;
+    font-size: 16px;
+    padding: 10px;
+  }
 }

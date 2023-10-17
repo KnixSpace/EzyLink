@@ -62,6 +62,7 @@ const NewLink = ({ userData }) => {
             <div className="url-input">
               <label htmlFor="lurl">Enter Your Long Urls</label>
               <input
+                className="place"
                 type="text"
                 id="lurl"
                 value={url ? url : urlError}
@@ -81,6 +82,7 @@ const NewLink = ({ userData }) => {
             <div className="custom-input">
               <span>Custom</span>
               <input
+                className="place"
                 type="text"
                 placeholder="doc-ezylink"
                 value={custom ? custom : error}
