@@ -21,7 +21,6 @@
   gap: 20px;
 
   &:hover {
-    color: #0276ff;
     background-color: #f0f0f0;
   }
 }
@@ -39,9 +38,9 @@
   gap: 20px;
   background-color: #e3effb;
 
-  &:hover {
+  /* &:hover {
     color: #0276ff;
-  }
+  } */
 }
 
 .new span {

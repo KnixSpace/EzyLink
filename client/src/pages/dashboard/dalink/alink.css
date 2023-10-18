@@ -23,7 +23,6 @@
 .alink-container {
   display: grid;
   padding: 10px 180px;
-  gap: 12px;
   border-radius: 10px;
 }
 
@@ -33,9 +32,13 @@
   grid-auto-flow: column;
   justify-items: center;
   gap: 20px;
-  color: #a6b3c7;
   font-weight: 500;
   font-size: 18px;
+  border-bottom: 1px solid #0276ff;
+}
+
+.alink-heading span {
+  padding: 15px;
 }
 
 .refs {
