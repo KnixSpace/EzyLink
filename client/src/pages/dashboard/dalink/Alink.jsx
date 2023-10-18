@@ -3,6 +3,7 @@ import Slink from "../../../components/link/Slink";
 import "./alink.css";
 
 const Alink = ({ userData }) => {
+  const [refresh, setRefresh] = useState(0);
   const [urlData, setUrlData] = useState([]);
   const udata = {
     email: userData.email,
@@ -22,14 +23,35 @@ const Alink = ({ userData }) => {
       setUrlData(data);
     };
     getUrlData();
-  }, []);
+  }, [refresh]);
 
+  const handleRotation = () => {
+    setRefresh(refresh + 360);
+  };
   return (
     <>
       <div className="alink-main">
+        <div className="alink-title">
+          <span>Your Links</span>
+          <span
+            class="material-icons-outlined refs"
+            style={{ transform: `rotate(${refresh}deg)` }}
+            onClick={handleRotation}
+          >
+            refresh
+          </span>
+        </div>
         <div className="alink-container">
+          <div className="alink-heading">
+            <span>Sr</span>
+            <span>Date</span>
+            <span>Short URL</span>
+            <span>Total Clicked</span>
+            <span>Active</span>
+            <span>Delete</span>
+          </div>
           {urlData.map((url, index) => {
-           return <Slink {...url} sr={index} key={index} />;
+            return <Slink {...url} sr={index} key={index} />;
           })}
         </div>
       </div>

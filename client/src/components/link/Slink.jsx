@@ -5,39 +5,32 @@ const Slink = (props) => {
   return (
     <>
       <div className="slink-container">
+        <span className="slink-item">{sr + 1}</span>
+        <span className="slink-item">{createdOn}</span>
+        <a
+          className="slink-item"
+          href={`http://localhost:3000/${shortUrl}`}
+          target="_blank"
+        >
+          http://localhost:3000/{shortUrl}
+        </a>
+        <span className="slink-item">{totalClicked}</span>
         <div className="slink-item">
-          <span className="slink-title">Sr No</span>
-          <span>{sr+1}</span>
-        </div>
-        <div className="slink-item">
-          <span className="slink-title">Date</span>
-          <span>{createdOn}</span>
-        </div>
-        <div className="slink-item">
-          <span className="slink-title">Short Url</span>
-          <a href={`http://localhost:3000/${shortUrl}`} target="_blank">
-            http://localhost:3000/{shortUrl}
-          </a>
-        </div>
-        <div className="slink-item">
-          <span className="slink-title">active</span>
           <span
-            className="material-icons-outlined"
+            className="material-icons-outlined md-18"
             style={{ color: isActive ? "#6ccca5 " : "red" }}
           >
             radio_button_checked
           </span>
         </div>
         <div className="slink-item">
-          <span className="slink-title">Total Click</span>
-          <span>{totalClicked}</span>
+          <span
+            className="material-icons-outlined md-18"
+            style={{ color: "#cc0016" }}
+          >
+            delete
+          </span>
         </div>
-        <span
-          className="material-icons-outlined slink-item"
-          style={{ color: "#cc0016" }}
-        >
-          delete
-        </span>
       </div>
     </>
   );

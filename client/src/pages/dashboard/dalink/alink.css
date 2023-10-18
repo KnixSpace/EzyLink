@@ -1,28 +1,73 @@
 .alink-main {
   display: grid;
-  width: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
   height: 100%;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  align-items: start;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 4px 25px -1px #e3effb;
-  gap: 40px;
+  gap: 20px;
   padding: 15px;
 }
 
+.alink-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 22px;
+  font-weight: 500;
+  align-items: center;
+}
+
 .alink-container {
-  max-width: 100%;
   display: grid;
-  padding: 20px;
-  gap: 10px;
-  background-color: #e3effb;
+  padding: 10px 180px;
+  gap: 12px;
   border-radius: 10px;
 }
 
-@media (max-width: 1536px) {
+.alink-heading {
+  display: grid;
+  grid-template-columns: 100px 150px 500px 150px 100px 100px;
+  grid-auto-flow: column;
+  justify-items: center;
+  gap: 20px;
+  color: #a6b3c7;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.refs {
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+@media (max-width: 1650px) {
   .alink-container {
+    padding-inline: 15px;
     overflow-x: scroll;
+  }
+}
+
+@media (max-width: 1024px) {
+  .alink-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .alink-title {
+    font-size: 18px;
+  }
+  .alink-heading {
+    font-size: 14px;
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .alink-title {
+    font-size: 16px;
   }
 }
