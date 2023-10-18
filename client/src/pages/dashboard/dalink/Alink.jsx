@@ -28,6 +28,14 @@ const Alink = ({ userData }) => {
   const handleRotation = () => {
     setRefresh(refresh + 360);
   };
+
+  if (urlData.length === 0) {
+    return (
+      <>
+        <div className="alink-main">no urls</div>
+      </>
+    );
+  }
   return (
     <>
       <div className="alink-main">
@@ -47,12 +55,14 @@ const Alink = ({ userData }) => {
             <span>Date</span>
             <span>Short URL</span>
             <span>Total Clicked</span>
-            <span>Active</span>
+            <span>Status</span>
             <span>Delete</span>
           </div>
-          {urlData.map((url, index) => {
-            return <Slink {...url} sr={index} key={index} />;
-          })}
+          <div className="alink-item">
+            {urlData.map((url, index) => {
+              return <Slink {...url} sr={index} key={index} />;
+            })}
+          </div>
         </div>
       </div>
     </>
