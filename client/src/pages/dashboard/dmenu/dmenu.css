@@ -25,10 +25,6 @@
   }
 }
 
-.dash-logout .link {
-  background: none;
-}
-
 .new {
   display: flex;
   align-items: center;
@@ -37,20 +33,35 @@
   border-radius: 10px;
   gap: 20px;
   background-color: #e3effb;
-
-  /* &:hover {
-    color: #0276ff;
-  } */
 }
 
-.new span {
-  background: none;
+.dash-m-tooltip {
+  position: absolute;
+  left: 114px;
+  background-color: #e3effb;
+  padding: 10px 20px;
+  border: 1px solid #0276ff;
+  border-radius: 10px;
+  opacity: 0;
+  z-index: 10;
 }
+
+.link:hover .dash-m-tooltip{
+  transition: all 0.4s ease-out;
+  opacity: 1;
+}
+
+.new:hover .dash-m-tooltip{
+  transition: all 0.4s ease-out;
+  opacity: 1;
+}
+
+
+
+
 
 @media screen and (max-width: 1024px) {
-  /* .dash-link-text {
-    display: none;
-  } */
+ 
 }
 
 @media screen and (max-width: 640px) {
