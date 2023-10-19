@@ -49,6 +49,7 @@
 
 @media (max-width: 1650px) {
   .alink-container {
+    justify-content: initial;
     padding-inline: 15px;
     overflow-x: scroll;
   }
