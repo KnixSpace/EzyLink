@@ -44,6 +44,7 @@
   border-radius: 10px;
   opacity: 0;
   z-index: 10;
+  pointer-events: none;
 }
 
 .link:hover .dash-m-tooltip{
