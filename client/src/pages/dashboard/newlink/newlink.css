@@ -8,7 +8,7 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 4px 25px -1px #e3effb;
-  gap: 40px;
+  gap: 10px;
 }
 .newlink-shortUrl {
   position: fixed;
@@ -17,7 +17,7 @@
 }
 
 .newlink-heading {
-  font-size: 40px;
+  font-size: 35px;
   font-weight: 500;
   padding: 10px;
   text-align: center;
@@ -25,6 +25,7 @@
 
 .newlink-heading span {
   color: #0276ff;
+  font-size: 40px;
   font-weight: 600;
 }
 

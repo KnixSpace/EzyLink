@@ -4,7 +4,7 @@ const Dfooter = () => {
     <>
       <div className="dash-footer">
         <span className="dash-blank"></span>
-        <span>© copyright 2023 EzyLink</span>
+        <span>© Copyright 2023 EzyLink</span>
         <span>
           Developed By{" "}
           <a href="https://github.com/KnixSpace" target="_blank">

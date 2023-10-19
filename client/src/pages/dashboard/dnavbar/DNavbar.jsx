@@ -19,7 +19,6 @@ const DNavbar = ({ userData }) => {
         </span>
         <Logo />
       </div>
-      <span className="dnav-title">Dashboard</span>
       <div className="dnav-links">
         <div className="dnav-user">
           <span>{userData.name}</span>
