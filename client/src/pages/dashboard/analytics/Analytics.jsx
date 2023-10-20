@@ -1,8 +1,30 @@
+import { Chart } from "react-google-charts";
 import { useState } from "react";
-import gp from "../../../assets/google.png"
+import gp from "../../../assets/google.png";
 import "./analytic.css";
 const Analytics = () => {
   const [blank, setBlank] = useState(false);
+
+  const data = [
+    ["week", "click"],
+    [1, 2],
+    [2, 4],
+    [3, 1],
+    [4, 2],
+    [5, 5],
+    [6, 3],
+    [7, 4],
+  ];
+
+  const geoData = [
+    ["country", "click"],
+    ["IN", 4],
+    ["US", 10],
+  ];
+
+  const color = {
+    colorAxis: { colors: ["#e3effb", "#0276ff"] },
+  };
   return (
     <>
       <div className="analytic-main">
@@ -53,6 +75,10 @@ const Analytics = () => {
                       <span className="aitext">125</span>
                     </div>
                     <div className="adetails">
+                      <span className="aititle">Status :</span>
+                      <span className="aitext">Active</span>
+                    </div>
+                    <div className="adetails">
                       <span className="aititle">Expiration :</span>
                       <span className="aitext">12-10-2023</span>
                     </div>
@@ -62,20 +88,69 @@ const Analytics = () => {
                   <span className="atitle">Total Insight</span>
                   <span className="aitem">245</span>
                 </div>
-                <div className="abox-3 abox">3</div>
-                <div className="abox-4 abox">
+                <div className="abox-3 abox">
                   <span className="atitle">Globalized</span>
                   <div className="country-scroll">
-                    <img src={gp} alt="" style={{width : "54px" , height : "54px"}} />
-                    <img src={gp} alt="" style={{width : "54px" , height : "54px"}} />
-                    <img src={gp} alt="" style={{width : "54px" , height : "54px"}} />
-                    <img src={gp} alt="" style={{width : "54px" , height : "54px"}} />
-                    <img src={gp} alt="" style={{width : "54px" , height : "54px"}} />
-                    <img src={gp} alt="" style={{width : "54px" , height : "54px"}} />
+                    <img
+                      src={gp}
+                      alt=""
+                      style={{ width: "54px", height: "54px" }}
+                    />
+                    <img
+                      src={gp}
+                      alt=""
+                      style={{ width: "54px", height: "54px" }}
+                    />
+                    <img
+                      src={gp}
+                      alt=""
+                      style={{ width: "54px", height: "54px" }}
+                    />
+                    <img
+                      src={gp}
+                      alt=""
+                      style={{ width: "54px", height: "54px" }}
+                    />
+                    <img
+                      src={gp}
+                      alt=""
+                      style={{ width: "54px", height: "54px" }}
+                    />
+                    <img
+                      src={gp}
+                      alt=""
+                      style={{ width: "54px", height: "54px" }}
+                    />
                   </div>
                 </div>
-                <div className="abox-5 abox">5</div>
+                <div className="abox-4 abox">
+                  <Chart
+                    chartType="Line"
+                    data={data}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                    chartVersion="current"
+                  ></Chart>
+                </div>
+                <div className="abox-5 abox">
+                  <Chart
+                    chartType="GeoChart"
+                    data={geoData}
+                    style={{
+                      width: "100%",
+                      objectFit: "cover",
+                    }}
+                    options={color}
+                    chartVersion="current"
+                  ></Chart>
+                </div>
               </div>
+              {/* <div className="">
+
+              </div> */}
             </>
           )}
         </div>
