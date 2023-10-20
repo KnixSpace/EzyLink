@@ -1,44 +1,62 @@
 import Logo from "../../components/logo/Logo";
+import Sidebar from "../sidebar/Sidebar";
+import { sidebarActive } from "../sidebar/sidebarSlice";
 import { openPage } from "../login-signup/loginSlice";
 import { useDispatch } from "react-redux";
-import "./navigation.css";
 import { NavLink, Outlet } from "react-router-dom";
+import "./navigation.css";
 const Navigation = () => {
   const dispatch = useDispatch();
   return (
     <>
-      <div className="navigation-nav d-flex">
-        <div className="flex-grow-1">
-          <Logo />
-        </div>
-        <div className="navigation-button">
+      <div className="navigation-main">
+        <div className="navigation-brand">
+          <span
+            class="material-icons-outlined"
+            onClick={() => {
+              dispatch(sidebarActive());
+            }}
+          >
+            menu
+          </span>
           <NavLink to={"/"}>
-            <button className="border-0">
-              Home
-            </button>
+            <Logo />
           </NavLink>
-          <NavLink to={"/about"}>
-            <button className="border-0">
-              About
-            </button>
+        </div>
+        <div className="navigation-links">
+          <NavLink to={"about"} className={"navigation-item"}>
+            About
           </NavLink>
-          <button
-            className="border-0"
+          <NavLink
+            className={"navigation-item"}
             onClick={() => {
               dispatch(openPage());
             }}
           >
             Login
-          </button>
-          <button
-            className="signup"
+          </NavLink>
+          <NavLink
+            className={"navigation-item nav-sign-up"}
             onClick={() => {
               dispatch(openPage());
             }}
           >
-            Sign Up Free
-          </button>
+            Sign Up
+          </NavLink>
         </div>
+        <div className="sm-navigation-links">
+          <NavLink
+            className={"navigation-item nav-sign-up"}
+            onClick={() => {
+              dispatch(openPage());
+            }}
+          >
+            Sign Up
+          </NavLink>
+        </div>
+      </div>
+      <div className="sidebar-menu">
+        <Sidebar />
       </div>
       <Outlet />
     </>

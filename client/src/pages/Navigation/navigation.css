@@ -1,39 +1,63 @@
-.navigation-nav {
-  padding: 40px 60px 0px 60px;
+.navigation-main {
+  padding: 40px 50px 10px 50px;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
-.navigation-button button {
-  margin-inline-start: 50px;
-  padding: 10px;
+.navigation-brand {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 10px;
+}
+
+.navigation-brand span {
+  display: none;
+}
+
+.navigation-brand:hover span {
+  cursor: pointer;
+}
+
+.navigation-links {
+  display: flex;
   font-size: 20px;
-  background:none;
+  gap: 25px;
+  text-wrap: nowrap;
 }
 
-.signup {
+.sm-navigation-links {
+  display: none;
+}
+
+.navigation-item {
+  padding: 10px 20px;
+}
+
+.nav-sign-up {
   border-radius: 10px;
   border: 1px solid #0276ff;
   background: #e3effb;
 }
 
-/* After User Login */
+@media (max-width: 768px) {
+  .navigation-main {
+    padding: 15px 20px 10px 20px;
+  }
+  .navigation-links {
+    display: none;
+  }
+  .navigation-item {
+    padding: 8px 16px;
+  }
 
-.user-name {
-  font-size: 18px;
-  padding-inline: 15px;
-  font-weight: 500;
-}
+  .navigation-brand span {
+    display: initial;
+  }
 
-.user-avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  margin-left: 10px;
-  overflow: hidden;
-  border: 1px solid #0276ff;
-}
-
-.user-avatar img {
-  width: 100%;
-  object-fit: contain;
+  .sm-navigation-links {
+    font-size: 16px;
+    display: initial;
+  }
 }

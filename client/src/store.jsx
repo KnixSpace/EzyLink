@@ -4,6 +4,7 @@ import shortUrlReducer from "./pages/shortUrl/shortUrlSlice";
 import limitReducer from "./components/Limit/limitSlice";
 import largeMenuReducer from "./pages/dashboard/dnavbar/dlmSlice";
 import smallMenuReducer from "./pages/dashboard/dnavbar/dsmSlice";
+import sidebarReducer from "./pages/sidebar/sidebarSlice";
 export const store = configureStore({
   reducer: {
     loginPage: loginReducer,
@@ -11,5 +12,6 @@ export const store = configureStore({
     limitPage: limitReducer,
     lgMenuPage: largeMenuReducer,
     smMenuPage: smallMenuReducer,
+    sidebar: sidebarReducer,
   },
 });
