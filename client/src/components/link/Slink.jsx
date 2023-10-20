@@ -1,7 +1,7 @@
 import "./slink.css";
 const Slink = (props) => {
   const { sr, createdOn, isActive, shortUrl, totalClicked } = props;
-  console.log(createdOn);
+  // console.log(createdOn);
   return (
     <>
       <div className="slink-container">

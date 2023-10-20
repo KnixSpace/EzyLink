@@ -42,7 +42,7 @@ const Alink = ({ userData }) => {
         <div className="alink-title">
           <span>Your Links</span>
           <span
-            class="material-icons-outlined refs"
+            className="material-icons-outlined refs"
             style={{ transform: `rotate(${refresh}deg)` }}
             onClick={handleRotation}
           >

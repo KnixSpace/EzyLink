@@ -25,7 +25,7 @@ const Dmenu = () => {
             )}
 
             <span
-              className={!isLargeMenu && "dash-m-tooltip"}
+              className={isLargeMenu ? null : "dash-m-tooltip"}
               style={{ display: isLargeMenu && "none" }}
             >
               New Link
@@ -44,7 +44,7 @@ const Dmenu = () => {
             )}
 
             <span
-              className={!isLargeMenu && "dash-m-tooltip"}
+              className={isLargeMenu ? null : "dash-m-tooltip"}
               style={{ display: isLargeMenu && "none" }}
             >
               Home
@@ -63,7 +63,7 @@ const Dmenu = () => {
             )}
 
             <span
-              className={!isLargeMenu && "dash-m-tooltip"}
+              className={isLargeMenu ? null : "dash-m-tooltip"}
               style={{ display: isLargeMenu && "none" }}
             >
               All Links
@@ -81,7 +81,7 @@ const Dmenu = () => {
               </span>
             )}
             <span
-              className={!isLargeMenu && "dash-m-tooltip"}
+              className={isLargeMenu ? null : "dash-m-tooltip"}
               style={{ display: isLargeMenu && "none" }}
             >
               Analytics
@@ -101,7 +101,7 @@ const Dmenu = () => {
               </span>
             )}
             <span
-              className={!isLargeMenu && "dash-m-tooltip"}
+              className={isLargeMenu ? null : "dash-m-tooltip"}
               style={{ display: isLargeMenu && "none" }}
             >
               Logout
