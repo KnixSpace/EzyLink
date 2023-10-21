@@ -40,17 +40,17 @@
   overflow: hidden;
 }
 
-.url-input {
+.nurl-input {
   display: grid;
   grid-template-columns: 1fr;
   gap: 5px;
 }
 
-.url-input label {
+.nurl-input label {
   font-weight: 500;
 }
 
-.url-input input {
+.nurl-input input {
   height: 50px;
   padding: 15px;
   border-radius: 10px;

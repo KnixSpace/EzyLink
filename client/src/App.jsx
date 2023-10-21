@@ -4,7 +4,7 @@ import Analytics from "./pages/dashboard/analytics/Analytics";
 import Alink from "./pages/dashboard/dalink/Alink";
 import About from "./pages/about/About";
 import Dashboard from "./pages/dashboard/Dashboard";
-import Navigation from "./pages/Navigation/Navigation";
+import Url from "./pages/url/Url";
 import Login from "./pages/login-signup/Login";
 import Home from "./pages/home/Home";
 import { AnimatePresence } from "framer-motion";
@@ -29,13 +29,14 @@ function App() {
     <>
       <AnimatePresence>
         {isOpen && <Login key={1} />}
-        <Routes>
-          <Route path="/" element={user ? null : <Navigation />}>
+        <Routes key={2}>
+          <Route path="/" element={user ? null : <Home />}>
+            <Route index element={<Url />}></Route>
+            <Route path="about" element={<About />}></Route>
             <Route
               index
               element={user ? <Navigate to={"/dashboard"} /> : <Home />}
             ></Route>
-            <Route path="about" element={<About />}></Route>
             <Route
               path="dashboard"
               element={

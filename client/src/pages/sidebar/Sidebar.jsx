@@ -20,7 +20,7 @@ const Sidebar = ({ show }) => {
             <Logo />
           </NavLink>
           <span
-            class="material-icons-outlined"
+            className="material-icons-outlined"
             onClick={() => {
               dispatch(sidebarInactive());
             }}

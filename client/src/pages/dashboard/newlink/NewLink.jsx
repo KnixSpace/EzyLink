@@ -59,7 +59,7 @@ const NewLink = ({ userData }) => {
           </span>
           <span className="link-slogan">Say good bye to long urls!!</span>
           <div className="newlink-inner">
-            <div className="url-input">
+            <div className="nurl-input">
               <label htmlFor="lurl">Enter Your Long Urls</label>
               <input
                 className="place"

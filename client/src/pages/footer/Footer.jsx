@@ -1,5 +1,5 @@
-import "./dfooter.css";
-const Dfooter = () => {
+import "./footer.css";
+const Footer = () => {
   return (
     <>
       <div className="dash-footer">
@@ -15,4 +15,4 @@ const Dfooter = () => {
     </>
   );
 };
-export default Dfooter;
+export default Footer;

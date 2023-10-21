@@ -1,6 +1,6 @@
 import DNavbar from "./dnavbar/DNavbar";
-import Dfooter from "./dfooter/Dfooter";
 import Dmenu from "./dmenu/Dmenu";
+import Footer from "../footer/Footer";
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./dashboard.css";
@@ -21,7 +21,7 @@ const Dashboard = ({ userData }) => {
             <Outlet />
           </div>
         </div>
-        <Dfooter />
+        <Footer />
       </div>
     </>
   );

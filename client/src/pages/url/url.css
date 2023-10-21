@@ -1,0 +1,70 @@
+.url-container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  place-items: center;
+  gap: 20px;
+}
+
+.url-short {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.url-shortner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 600px));
+  gap: 30px;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.url-heading {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.url-heading span {
+  color: #0276ff;
+}
+
+.url-slogan {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.url-input {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+.url-input label {
+  font-weight: 500;
+}
+
+.url-input input {
+  height: 50px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #a6b3c7;
+  background: #e3effb;
+
+  &:focus {
+    outline: #0276ff solid 1px;
+    outline-offset: -1px;
+  }
+}
+
+.url-input-button {
+  height: 50px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #0276ff;
+  color: #e3effb;
+}
+
+

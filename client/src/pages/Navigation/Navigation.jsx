@@ -12,7 +12,7 @@ const Navigation = () => {
       <div className="navigation-main">
         <div className="navigation-brand">
           <span
-            class="material-icons-outlined"
+            className="material-icons-outlined"
             onClick={() => {
               dispatch(sidebarActive());
             }}
@@ -24,6 +24,9 @@ const Navigation = () => {
           </NavLink>
         </div>
         <div className="navigation-links">
+          <NavLink to={""} className={"navigation-item"}>
+            Home
+          </NavLink>
           <NavLink to={"about"} className={"navigation-item"}>
             About
           </NavLink>
@@ -58,7 +61,6 @@ const Navigation = () => {
       <div className="sidebar-menu">
         <Sidebar />
       </div>
-      <Outlet />
     </>
   );
 };

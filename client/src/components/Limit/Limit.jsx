@@ -18,10 +18,10 @@ const Limit = () => {
         transition={{ duration: 0.5 }}
       >
         <p>
-          Your daily limit of 5 free URL shortening <br />
-          requests has been exhausted.
+          Exceeded your free limits?
+          <br />
+          Join our free account for limitless link Shortening today!
         </p>
-        <p>Kindly register for free account to continue</p>
         <button
           className="limit-login"
           onClick={() => {
