@@ -23,6 +23,10 @@
 }
 
 @media (max-width: 768px) {
+  .slink-container{
+    grid-template-columns:80px 130px 480px 130px 80px 80px ;
+    gap: 10px;
+  }
   .slink-item {
     font-size: 14px;
   }

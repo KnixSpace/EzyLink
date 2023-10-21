@@ -66,6 +66,8 @@
     font-size: 18px;
   }
   .alink-heading {
+    grid-template-columns:80px 130px 480px 130px 80px 80px ;
+    gap: 10px;
     font-size: 14px;
   }
 }
