@@ -39,7 +39,10 @@ const Analytics = () => {
               type="text"
               placeholder="Search your links"
             />
-            <button>search</button>
+            <button className="asearch">search</button>
+            <button className="mini-search">
+              <span class="material-icons-outlined">search</span>
+            </button>
           </div>
         </div>
         <div className="analytic-content">
@@ -52,7 +55,7 @@ const Analytics = () => {
               <div className="analytic-content-inner">
                 <div className="abox-1 abox">
                   <span className="atitle">Details</span>
-                  <div className="aitem">
+                  <div className="aitem al">
                     <div className="adetails">
                       <span className="aititle">Created On :</span>
                       <span className="aitext">12-10-2023</span>
@@ -67,7 +70,7 @@ const Analytics = () => {
                     <div className="adetails">
                       <span className="aititle">Long Url :</span>
                       <a href={""} className="aitext">
-                        https://youtube.com
+                        https://youtube.com/asdfghjklqwertyuioppasdfghjklzxcvbnm
                       </a>
                     </div>
                     <div className="adetails">
@@ -96,61 +99,34 @@ const Analytics = () => {
                       alt=""
                       style={{ width: "54px", height: "54px" }}
                     />
-                    <img
-                      src={gp}
-                      alt=""
-                      style={{ width: "54px", height: "54px" }}
-                    />
-                    <img
-                      src={gp}
-                      alt=""
-                      style={{ width: "54px", height: "54px" }}
-                    />
-                    <img
-                      src={gp}
-                      alt=""
-                      style={{ width: "54px", height: "54px" }}
-                    />
-                    <img
-                      src={gp}
-                      alt=""
-                      style={{ width: "54px", height: "54px" }}
-                    />
-                    <img
-                      src={gp}
-                      alt=""
-                      style={{ width: "54px", height: "54px" }}
-                    />
                   </div>
                 </div>
                 <div className="abox-4 abox">
+                  <span className="atitle">Weekly Data</span>
                   <Chart
                     chartType="Line"
                     data={data}
                     style={{
                       width: "100%",
                       height: "100%",
-                      objectFit: "cover",
                     }}
                     chartVersion="current"
                   ></Chart>
                 </div>
                 <div className="abox-5 abox">
+                  <span className="atitle">Geo Data</span>
                   <Chart
                     chartType="GeoChart"
                     data={geoData}
                     style={{
                       width: "100%",
-                      objectFit: "cover",
+                      height: "100%",
                     }}
                     options={color}
                     chartVersion="current"
                   ></Chart>
                 </div>
               </div>
-              {/* <div className="">
-
-              </div> */}
             </>
           )}
         </div>
