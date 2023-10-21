@@ -23,7 +23,6 @@
   align-items: center;
   background: none;
   padding: 30px;
-  /* border: 0px solid #0276ff; */
   border-radius: 10px;
 }
 
@@ -75,4 +74,35 @@
 
 .login-close :hover {
   cursor: pointer;
+}
+
+.fa-xl {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .login-close {
+    top: 30px;
+    right: 30px;
+  }
+  .login-text {
+    font-size: 22px;
+    padding: 10px;
+  }
+  .login-button {
+    font-size: 16px;
+  }
+
+  .login-google {
+    height: 27px;
+    width: 27px;
+  }
+
+  .fa-2xl {
+    display: none;
+  }
+
+  .fa-xl {
+    display: initial;
+  }
 }

@@ -31,12 +31,11 @@ function App() {
         {isOpen && <Login key={1} />}
         <Routes key={2}>
           <Route path="/" element={user ? null : <Home />}>
-            <Route index element={<Url />}></Route>
-            <Route path="about" element={<About />}></Route>
             <Route
               index
-              element={user ? <Navigate to={"/dashboard"} /> : <Home />}
+              element={user ? <Navigate to={"/dashboard"} /> : <Url />}
             ></Route>
+            <Route path="about" element={<About />}></Route>
             <Route
               path="dashboard"
               element={

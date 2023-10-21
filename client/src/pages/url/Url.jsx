@@ -56,9 +56,9 @@ const Url = () => {
           <div className="url-shortner">
             <span className="url-heading">
               Super Charge Your Links: <br /> Boost Clicks, Engagement, and
-              <span> Conversations!</span>
+              <span className="highlight"> Conversations!</span>
+              <span className="url-slogan">Your Link to Online Triumph!</span>
             </span>
-            <span className="url-slogan">Your Link to Online Triumph!</span>
             <div className="url-input">
               <label htmlFor="lurl">Enter Your Long Urls</label>
               <input

@@ -5,7 +5,7 @@
 }
 
 .home-content-container {
-  padding: 15px 50px;
+  padding: 5px 50px;
 }
 
 .home-footer-container {
@@ -14,4 +14,11 @@
   gap: 10px;
   justify-items: center;
   align-items: center;
+}
+
+
+@media (max-width: 640px) {
+  .home-content-container {
+    padding: 5px 20px;
+  }
 }

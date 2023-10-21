@@ -38,11 +38,15 @@ const Login = () => {
             Continue With Google
           </button>
         </div>
-        <div
-          className="login-close"
-        >
+        <div className="login-close">
           <i
             className="fa-solid fa-xmark fa-2xl"
+            onClick={() => {
+              dispatch(closePage());
+            }}
+          ></i>
+          <i
+            className="fa-solid fa-xmark fa-xl"
             onClick={() => {
               dispatch(closePage());
             }}
