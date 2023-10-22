@@ -177,7 +177,7 @@ router.post("/api/url/link/all", async (req, res) => {
 router.post("/api/url/link/analytics", async (req, res) => {
   let isActive = false;
   const lineData = [];
-  const geoData = ["country", "click"];
+  const geoData = [["country", "click"]];
   const { email, shortUrl } = req.body;
   const findData = await UrlData.findOne({ email, shortUrl }).select({
     createdOn: 1,
@@ -187,6 +187,11 @@ router.post("/api/url/link/analytics", async (req, res) => {
     weeklyClick: 1,
     clickPerCountry: 1,
   });
+
+  if (!findData) {
+    const noUrl = { error: "no url fount" };
+    return res.send(JSON.stringify(noUrl));
+  }
 
   const { createdOn, longUrl, totalClicked, weeklyClick, clickPerCountry } =
     findData;
@@ -226,7 +231,6 @@ router.post("/api/url/link/analytics", async (req, res) => {
   const linkAnalytics = {
     isActive,
     createdOn,
-    shortUrl,
     longUrl,
     totalClicked,
     lineData,
