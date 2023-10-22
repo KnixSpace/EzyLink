@@ -44,7 +44,7 @@ function App() {
             >
               <Route path="" element={<DHome userData={user} />} />
               <Route path="newlink" element={<NewLink userData={user} />} />
-              <Route path="analytics" element={<Analytics />} />
+              <Route path="analytics" element={<Analytics userData={user} />} />
               <Route path="links" element={<Alink userData={user} />} />
             </Route>
           </Route>
