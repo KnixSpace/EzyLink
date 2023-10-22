@@ -26,8 +26,18 @@ router.get("/:shortUrl", async (req, res) => {
 
 router.post("/api/url/free", limiter, async (req, res) => {
   const { longUrl } = req.body;
-  const count = await redis.get("counter");
-  const shortUrl = base62.encode(count);
+  let i = 0,
+    shortUrl;
+  do {
+    const count = await redis.get("counter");
+    shortUrl = base62.encode(count);
+    const findUrl = await Url.findOne({ shortUrl });
+    if (!findUrl) {
+      i = -1;
+    }
+    await redis.incr("counter");
+  } while (i >= 0);
+
   const cliUrl = process.env.PRODUCTION_HOST + shortUrl;
   const newUrl = new Url({
     longUrl,
