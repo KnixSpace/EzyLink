@@ -1,0 +1,10 @@
+.flag-img {
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+}
+
+.flag-img img {
+  width: 100%;
+  object-fit: cover;
+}
