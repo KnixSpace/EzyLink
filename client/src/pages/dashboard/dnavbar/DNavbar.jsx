@@ -22,7 +22,7 @@ const DNavbar = ({ userData }) => {
       <div className="dnav-links">
         <div className="dnav-user">
           <span>{userData.name}</span>
-          <img src={userData.picture ? userData.picture : defaultPic} alt="" />
+          <img src={userData.picture} alt={userData.name} />
         </div>
       </div>
     </div>
