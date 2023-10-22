@@ -47,11 +47,8 @@
   background: none;
 }
 
-.shortUrl-close i {
-  background: none;
-  &:hover {
-    cursor: pointer;
-  }
+.shortUrl-share:hover i {
+  cursor: pointer;
 }
 
 .shortUrl-close {
@@ -59,19 +56,36 @@
   top: 60px;
   right: 70px;
   background: none;
-  color: #0276ff;
+  color: #7f7d9c;
 }
 
-.shortUrl-close :hover {
+.shortUrl-close:hover{
   cursor: pointer;
 }
 
 .shortUrl-copy {
   position: absolute;
   bottom: 270px;
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 10px;
   border: 1px solid #0276ff;
   background-color: #e3effb;
   color: #0276ff;
+}
+
+@media (max-width: 640px) {
+  .shortUrl-url {
+    font-size: 18px;
+  }
+
+  .shortUrl-close{
+    top: 30px;
+    right: 30px;
+  }
+
+  .shortUrl-copy{
+    bottom: 160px;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
 }

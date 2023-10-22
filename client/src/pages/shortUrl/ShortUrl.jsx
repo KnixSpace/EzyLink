@@ -9,11 +9,12 @@ const ShortUrl = ({ urldata }) => {
   const dispatch = useDispatch();
   const [isCopied, setIsCopied] = useState(false);
   const copyUrl = async () => {
+    await navigator.permissions.query({ name: "clipboard-write" });
     await navigator.clipboard.writeText(urldata);
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
-    }, 1500);
+    }, 2000);
   };
 
   const copyWhatsapp = () => {
@@ -35,10 +36,12 @@ const ShortUrl = ({ urldata }) => {
         <div className="shortUrl-url">{urldata}</div>
         <div className="shortUrl-share">
           <i className="fa-regular fa-copy fa-2xl" onClick={copyUrl}></i>
+          <i className="fa-regular fa-copy fa-xl" onClick={copyUrl}></i>
           <i
             className="fa-brands fa-whatsapp fa-2xl"
             onClick={copyWhatsapp}
           ></i>
+          <i className="fa-brands fa-whatsapp fa-xl" onClick={copyWhatsapp}></i>
         </div>
         {isCopied && (
           <>
@@ -56,6 +59,12 @@ const ShortUrl = ({ urldata }) => {
         <div className="shortUrl-close">
           <i
             className="fa-solid fa-xmark fa-2xl"
+            onClick={() => {
+              dispatch(getUrlClose());
+            }}
+          ></i>
+          <i
+            className="fa-solid fa-xmark fa-xl"
             onClick={() => {
               dispatch(getUrlClose());
             }}
