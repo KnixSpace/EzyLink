@@ -55,7 +55,7 @@ const About = () => {
                 security are paramount to me.
               </li>
               <li>
-                <span>Customization:</span>EzyLink provides options for
+                <span>Customization:</span> EzyLink provides options for
                 customizing your short links to match your branding or message.
               </li>
               <li>

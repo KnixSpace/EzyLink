@@ -1,3 +1,7 @@
+li {
+  list-style: none;
+}
+
 .about-main {
   display: grid;
   width: 100%;
@@ -36,75 +40,80 @@
   font-size: 20px;
   font-weight: 500;
   color: #0276ff;
+  border-bottom: 1px solid #0276ff;
+  padding: 5px;
 }
 
 .about-text {
   font-size: 18px;
   text-align: justify;
+  padding: 5px;
+}
+
+.about-text li {
+  padding-block: 5px;
 }
 
 .about-text span {
   font-weight: 500;
 }
 
-  
-  /* xl */
-  @media (max-width: 1280px) {
-    .about-container {
-      grid-template-columns: 800px;
-    }
+/* xl */
+@media (max-width: 1280px) {
+  .about-container {
+    grid-template-columns: 800px;
   }
-  
-  /* lg */
-  @media (max-width: 1024px) {
-    .about-container {
-      grid-template-columns: 600px;
-    }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+  .about-container {
+    grid-template-columns: 600px;
   }
-  
-  /* md */
-  @media (max-width: 768px) {
-    .about-container {
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
+}
 
-    .about-heading{
-        font-size: 25px;
-    }
-
-    .about-brand {
-        font-size: 35px;
-    }
-
-    .about-title {
-        font-size: 18px;
-    }
-
-    .about-text {
-        font-size: 16px;
-    }
+/* md */
+@media (max-width: 768px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  @media (max-width: 640px) {
-    .about-container {
-      grid-template-columns: 1fr;
-    }
-
-    .about-heading{
-        font-size: 20px;
-    }
-
-    .about-brand {
-        font-size: 30px;
-    }
-
-    .about-title {
-        font-size: 16px;
-    }
-
-    .about-text {
-        font-size: 14px;
-    }
+  .about-heading {
+    font-size: 25px;
   }
 
+  .about-brand {
+    font-size: 35px;
+  }
+
+  .about-title {
+    font-size: 18px;
+  }
+
+  .about-text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-heading {
+    font-size: 20px;
+  }
+
+  .about-brand {
+    font-size: 30px;
+  }
+
+  .about-title {
+    font-size: 16px;
+  }
+
+  .about-text {
+    font-size: 14px;
+  }
+}
