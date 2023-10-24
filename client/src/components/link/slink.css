@@ -1,8 +1,9 @@
 .slink-container {
   display: grid;
-  grid-template-columns: 100px 150px 500px 150px 100px 100px;
+  grid-template-columns: 100px 150px 500px 150px 100px;
   grid-auto-flow: column;
   gap: 20px;
+  padding-inline: 10px;
   border-bottom: 1px solid #a6b3c7;
 }
 
@@ -24,7 +25,7 @@
 
 @media (max-width: 768px) {
   .slink-container{
-    grid-template-columns:80px 130px 480px 130px 80px 80px ;
+    grid-template-columns:80px 130px 480px 130px 80px;
     gap: 10px;
   }
   .slink-item {

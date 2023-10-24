@@ -15,23 +15,14 @@ const Slink = (props) => {
           http://localhost:3000/{shortUrl}
         </a>
         <span className="slink-item">{totalClicked}</span>
-        <span className="slink-item" style={{color : isActive ? "#1DB954" : "#cc0016"}}>
+        <span
+          className="slink-item"
+          style={{ color: isActive ? "#1DB954" : "#cc0016" }}
+        >
           {isActive ? "Active" : "Inactive"}
         </span>
-        <div className="slink-item">
-          <span
-            className="material-icons-outlined md-18"
-            style={{ color: "#cc0016" }}
-          >
-            delete
-          </span>
-        </div>
       </div>
     </>
   );
 };
 export default Slink;
-
-
-// background-color: #e6ffeb;
-//   color: #009a2a;

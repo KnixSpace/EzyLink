@@ -56,7 +56,6 @@ const Alink = ({ userData }) => {
             <span>Short URL</span>
             <span>Total Clicked</span>
             <span>Status</span>
-            <span>Delete</span>
           </div>
           <div className="alink-item">
             {urlData.map((url, index) => {
