@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import "./dmenu.css";
 const Dmenu = () => {
   const { isLargeMenu } = useSelector((store) => store.lgMenuPage);
-  const { isSmallMenu } = useSelector((store) => store.smMenuPage);
   const handelLogout = () => {
     window.open("http://localhost:3000/auth/api/logout", "_self");
   };

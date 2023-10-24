@@ -25,6 +25,10 @@
   background-color: #ececec;
 }
 
+.dsm {
+  display: none;
+}
+
 .dnav-title {
   font-size: 30px;
   font-weight: 600;
@@ -68,6 +72,12 @@
 }
 
 @media screen and (max-width: 768px) {
+  .dsm {
+    display: initial;
+  }
+  .dlg {
+    display: none;
+  }
   .dnavbar {
     padding: 20px 30px 10px 30px;
   }

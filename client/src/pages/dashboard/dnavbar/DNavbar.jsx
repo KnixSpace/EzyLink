@@ -4,21 +4,34 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { lgMenuToggle } from "./dlmSlice";
 import "./dnavbar.css";
-
+import { smMenuOpen } from "./dsmSlice";
 const DNavbar = ({ userData }) => {
   const { isLargeMenu } = useSelector((store) => store.lgMenuPage);
   const dispatch = useDispatch();
   return (
     <div className="dnavbar">
       <div className="dnav-logo">
-        <span
-          className="material-icons-outlined md-18 dnav-menu"
-          onClick={() => {
-            dispatch(lgMenuToggle(!isLargeMenu));
-          }}
-        >
-          menu
-        </span>
+        <div className="dlg">
+          <span
+            className="material-icons-outlined md-18 dnav-menu"
+            onClick={() => {
+              dispatch(lgMenuToggle(!isLargeMenu));
+            }}
+          >
+            menu
+          </span>
+        </div>
+        <div className="dsm">
+          <span
+            className="material-icons-outlined md-18 dnav-menu"
+            onClick={() => {
+              dispatch(smMenuOpen());
+            }}
+          >
+            menu
+          </span>
+        </div>
+
         <Link to={"/"}>
           <Logo />
         </Link>

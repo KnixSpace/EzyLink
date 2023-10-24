@@ -20,26 +20,18 @@
 
 @media screen and (max-width: 768px) {
   .menu-container {
-    padding: 5px 10px 5px 30px;
+    display: none;
   }
   .content-container {
-    padding: 5px 30px 5px 10px;
+    padding: 5px 20px 5px 20px;
   }
 }
 
 @media screen and (max-width: 640px) {
-  .menu-container {
-    padding: 5px 10px 5px 20px;
-  }
-
   .content-container {
-    padding: 5px 20px 5px 10px;
+    padding: 5px 15px 5px 15px;
   }
 }
-
-
-
-
 
 @media (max-width: 1536px) {
   .dash-container {
@@ -63,9 +55,6 @@
 
 /* md */
 @media (max-width: 768px) {
-  /* .menu-container {
-    display: none;
-  } */
   .dash-container {
     background-color: rgba(255, 68, 0, 0.295);
   }

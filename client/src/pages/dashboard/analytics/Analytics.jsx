@@ -80,9 +80,7 @@ const Analytics = ({ userData }) => {
 
   const { isActive, longUrl, createdOn, totalClicked, lineData, geoData } =
     data;
-
-  console.log(flagData);
-
+    
   //line data
   const olineData = [
     [{ type: "date", label: "Day" }, "clicks"],

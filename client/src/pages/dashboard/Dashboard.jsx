@@ -4,6 +4,7 @@ import Footer from "../footer/Footer";
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./dashboard.css";
+import DSmallMenu from "./dsmallMenu/DSmallMenu";
 const Dashboard = ({ userData }) => {
   const { isLargeMenu } = useSelector((store) => store.lgMenuPage);
   return (
@@ -17,6 +18,7 @@ const Dashboard = ({ userData }) => {
           >
             <Dmenu />
           </div>
+          <DSmallMenu/>
           <div className="content-container">
             <Outlet />
           </div>
