@@ -22,7 +22,6 @@ const updateData = async (shortUrl) => {
   const previousMonday = new Date();
   previousMonday.setDate(today.getDate() - daysToSubtract);
   const date = previousMonday.toLocaleDateString("en-US");
-
   //click logic
 
   const findDate = await UrlData.findOne({
@@ -72,6 +71,7 @@ const updateData = async (shortUrl) => {
         { shortUrl },
         {
           $inc: { totalClicked: 1, "clickPerCountry.$[elemCountry].click": 1 },
+          $addToSet: { weeklyClick: { date, click: 1 } },
         },
         { arrayFilters: [{ "elemCountry.country": country }] }
       );
