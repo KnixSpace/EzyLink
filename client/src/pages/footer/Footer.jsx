@@ -6,9 +6,8 @@ const Footer = () => {
         <span className="dash-blank"></span>
         <span>© Copyright 2023 EzyLink</span>
         <span>
-          Developed By{" "}
           <a href="https://github.com/KnixSpace" target="_blank">
-            Krupal Patel
+          Developed By Krupal Patel
           </a>
         </span>
       </div>
