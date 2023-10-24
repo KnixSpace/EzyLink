@@ -72,7 +72,7 @@ const About = () => {
             <span className="about-text">
               I value your feedback and inquiries. If you have any questions,
               suggestions, or concerns, please don't hesitate to get in touch
-              with me. You can reach out through our Contact Page or by emailing
+              with me. You can reach out through by emailing
               me directly at your_email@example.com.
             </span>
           </div>
