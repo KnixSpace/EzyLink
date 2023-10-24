@@ -1,6 +1,6 @@
 import validateUrl from "../../../validations/urlValidator";
 import { Chart } from "react-google-charts";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import gp from "../../../assets/google.png";
 import "./analytic.css";
 import Flag from "../../../components/flag/Flag";
@@ -9,8 +9,17 @@ const Analytics = ({ userData }) => {
   const [url, setUrl] = useState("");
   const [data, setData] = useState("");
   const [edate, setEDate] = useState("");
+  const [flagData, setFlagData] = useState([]);
   const [error, setError] = useState(false);
   const [urlError, setUrlError] = useState("");
+
+  const getFlag = async (country) => {
+    const data = await fetch(
+      `https://restcountries.com/v3.1/name/${country}?fields=flags`
+    );
+    const rdata = await data.json();
+    return rdata[0].flags.png;
+  };
 
   const handelClick = async () => {
     const validError = validateUrl(url.trim());
@@ -27,49 +36,53 @@ const Analytics = ({ userData }) => {
       email: userData.email,
       shortUrl,
     };
-    const rawData = await fetch(
-      "http://localhost:3000/api/url/link/analytics",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(uData),
-        credentials: "include",
-      }
-    );
 
-    const data = await rawData.json();
-    if (data.error) {
-      return setError(true);
-    }
-    setData(data);
+    fetch("http://localhost:3000/api/url/link/analytics", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(uData),
+      credentials: "include",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((rawData) => {
+        if (rawData.error) {
+          return setError(true);
+        }
+        setData(rawData);
 
-    //expiration date calculation
-    const part = data?.createdOn.split("/");
-    const cDate = new Date(`${part[1]}/${part[0]}/${part[2]}`);
-    const newDate = new Date(cDate);
-    newDate.setFullYear(cDate.getFullYear() + 10);
-    const stdate = newDate.toLocaleDateString("en-IN");
-    setEDate(stdate);
+        const part = rawData?.createdOn.split("/");
+        const cDate = new Date(`${part[1]}/${part[0]}/${part[2]}`);
+        const newDate = new Date(cDate);
+        newDate.setFullYear(cDate.getFullYear() + 10);
+        const stdate = newDate.toLocaleDateString("en-IN");
+        setEDate(stdate);
+
+        const flagPromise = rawData?.geoData
+          .slice(1)
+          .map((item) => getFlag(item[0]));
+
+        Promise.all(flagPromise)
+          .then((rflagData) => {
+            setFlagData(rflagData);
+          })
+          .catch((error) => {
+            console.error("An error occurred:", error);
+          });
+      });
   };
 
   const { isActive, longUrl, createdOn, totalClicked, lineData, geoData } =
     data;
 
-  // geo flags
-  // const geoFlag = [];
-  // async function fetchFlags() {
-  //   for (let i = 1; i < geoData.length; i++) {
-  //     const country = geoData[i][0];
-  //     const data = await fetch(
-  //       `https://restcountries.com/v3.1/name/${country}?fields=flags`
-  //     );
-  //     const rdata = await data.json();
-  //     const imgLink = rdata[0].flags.png;
-  //     geoFlag.push(imgLink);
-  //   }
-  // }
+  console.log(flagData);
+
   //line data
   const olineData = [
     [{ type: "date", label: "Day" }, "clicks"],
@@ -177,15 +190,12 @@ const Analytics = ({ userData }) => {
                 <div className="abox-3 abox">
                   <span className="atitle">Globalized</span>
                   <div className="country-scroll">
-                    {/* {fetchFlags().then(() => {
-                      {
-                        geoFlag.map((item) => {
-                          console.log(item);
-                          return <Flag flagImg={item} />;
-                        });
-                      }
-                    })} */}
-                    {/* <Flag flagImg={"new"} /> */}
+                    {flagData.map((flag) => (
+                      <>
+                        {/* <p key={flag}>{flag}</p> */}
+                        <Flag key={flag} flagImg={flag}/>
+                      </>
+                    ))}
                   </div>
                 </div>
                 <div className="abox-4 abox">
