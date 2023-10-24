@@ -240,4 +240,11 @@ router.post("/api/url/link/analytics", ensurAuthenticated, async (req, res) => {
   res.send(JSON.stringify(linkAnalytics));
 });
 
+router.delete("api/url/delete", ensurAuthenticated, async (req, res) => {
+  const { email, shortUrl } = req.body;
+  await Url.findOneAndDelete({ shortUrl });
+  await UrlData.findByIdAndDelete({ email, shortUrl });
+  res.send(JSON.stringify({ message: "deleted" }));
+});
+
 module.exports = router;
