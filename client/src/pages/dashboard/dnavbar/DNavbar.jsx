@@ -1,8 +1,10 @@
 import defaultPic from "../../../assets/default.svg";
 import Logo from "../../../components/logo/Logo";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { lgMenuToggle } from "./dlmSlice";
 import "./dnavbar.css";
+
 const DNavbar = ({ userData }) => {
   const { isLargeMenu } = useSelector((store) => store.lgMenuPage);
   const dispatch = useDispatch();
@@ -17,7 +19,9 @@ const DNavbar = ({ userData }) => {
         >
           menu
         </span>
-        <Logo />
+        <Link to={"/"}>
+          <Logo />
+        </Link>
       </div>
       <div className="dnav-links">
         <div className="dnav-user">
