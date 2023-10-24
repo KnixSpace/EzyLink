@@ -33,7 +33,9 @@ const ShortUrl = ({ urldata }) => {
       >
         <Logo />
         <div className="shortUrl-heading">Now its Tiny...</div>
-        <div className="shortUrl-url">{urldata}</div>
+        <div className="shortUrl-url">
+          <a href={urldata} target="_blank">{urldata}</a>
+        </div>
         <div className="shortUrl-share">
           <i className="fa-regular fa-copy fa-2xl" onClick={copyUrl}></i>
           <i className="fa-regular fa-copy fa-xl" onClick={copyUrl}></i>
