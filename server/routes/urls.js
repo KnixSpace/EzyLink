@@ -96,7 +96,7 @@ router.post("/api/url/paid", ensurAuthenticated, async (req, res) => {
   await newUrlData.save();
 });
 
-router.post("/api/url/dashboard/data", async (req, res) => {
+router.post("/api/url/dashboard/data", ensurAuthenticated, async (req, res) => {
   const geoData = [["country", "click"]];
   const lineData = [];
   let total = 0;
@@ -145,7 +145,7 @@ router.post("/api/url/dashboard/data", async (req, res) => {
   res.send(JSON.stringify(clickData));
 });
 
-router.post("/api/url/link/all", async (req, res) => {
+router.post("/api/url/link/all", ensurAuthenticated, async (req, res) => {
   const { email } = req.body;
   const findData = await UrlData.find({ email }).select({
     createdOn: 1,
@@ -174,7 +174,7 @@ router.post("/api/url/link/all", async (req, res) => {
   res.send(JSON.stringify(allData));
 });
 
-router.post("/api/url/link/analytics", async (req, res) => {
+router.post("/api/url/link/analytics", ensurAuthenticated, async (req, res) => {
   let isActive = false;
   const lineData = [];
   const geoData = [["country", "click"]];
