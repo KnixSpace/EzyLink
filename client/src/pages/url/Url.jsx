@@ -56,8 +56,8 @@ const Url = () => {
           <div className="url-shortner">
             <span className="url-heading">
               <span>
-                 Super Charge Your Links: <br /> Boost Clicks, Engagement, and
-              <span className="highlight"> Conversations!</span>
+                Super Charge Your Links: <br /> Boost Clicks, Engagement, and
+                <span className="highlight"> Conversations!</span>
               </span>
               <span className="url-slogan">Your Link to Online Triumph!</span>
             </span>
