@@ -1,9 +1,10 @@
 import validateUrl from "../../../validations/urlValidator";
 import { Chart } from "react-google-charts";
 import { useEffect, useState } from "react";
-import gp from "../../../assets/google.png";
-import "./analytic.css";
 import Flag from "../../../components/flag/Flag";
+import noData from "../../../assets/no-data.png";
+import analytic from "../../../assets/analytics.png";
+import "./analytic.css";
 const Analytics = ({ userData }) => {
   const [blank, setBlank] = useState(true);
   const [url, setUrl] = useState("");
@@ -28,8 +29,6 @@ const Analytics = ({ userData }) => {
       setUrlError("Please enter valid Url");
       return;
     }
-    setBlank(false);
-    setError(false);
     const path = new URL(url).pathname;
     const shortUrl = path.split("/").pop().trim();
     const uData = {
@@ -53,8 +52,12 @@ const Analytics = ({ userData }) => {
       })
       .then((rawData) => {
         if (rawData.error) {
-          return setError(true);
+          setBlank(true);
+          setError(true);
+          return;
         }
+        setBlank(false);
+        setError(false);
         setData(rawData);
 
         const part = rawData?.createdOn.split("/");
@@ -80,7 +83,7 @@ const Analytics = ({ userData }) => {
 
   const { isActive, longUrl, createdOn, totalClicked, lineData, geoData } =
     data;
-    
+
   //line data
   const olineData = [
     [{ type: "date", label: "Day" }, "clicks"],
@@ -129,7 +132,14 @@ const Analytics = ({ userData }) => {
               search
             </button>
             <button className="mini-search">
-              <span className="material-icons-outlined">search</span>
+              <span
+                className="material-icons-outlined"
+                onClick={() => {
+                  handelClick();
+                }}
+              >
+                search
+              </span>
             </button>
           </div>
         </div>
@@ -138,12 +148,16 @@ const Analytics = ({ userData }) => {
             <>
               {error ? null : (
                 <>
-                  <div>find your url</div>
+                  <div className="analytic-illus">
+                    <img src={analytic} alt="" />
+                  </div>
                 </>
               )}
               {error && (
                 <>
-                  <div>no url found</div>
+                  <div className="analytic-illus">
+                    <img src={noData} alt="" />
+                  </div>
                 </>
               )}
             </>
@@ -188,11 +202,8 @@ const Analytics = ({ userData }) => {
                 <div className="abox-3 abox">
                   <span className="atitle">Globalized</span>
                   <div className="country-scroll">
-                    {flagData.map((flag) => (
-                      <>
-                        {/* <p key={flag}>{flag}</p> */}
-                        <Flag key={flag} flagImg={flag}/>
-                      </>
+                    {flagData.map((flag, index) => (
+                      <Flag key={index} flagImg={flag} />
                     ))}
                   </div>
                 </div>

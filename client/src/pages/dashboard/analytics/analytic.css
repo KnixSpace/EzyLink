@@ -34,7 +34,6 @@
 .analytic-heading span {
   color: #277efe;
   font-weight: 600;
-  font-size: 40px;
 }
 
 .input-div {
@@ -99,6 +98,21 @@
     "insight  globalized  Line"
     "details  details     Geo";
   gap: 15px;
+}
+
+.analytic-illus {
+  width: 100%;
+  /* height: 100%; */
+  display: grid;
+  grid-template-columns: 500px;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.analytic-illus img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .abox {
@@ -254,10 +268,6 @@
     font-size: 18px;
   }
 
-  .analytic-heading {
-    font-size: 24px;
-  }
-
   .analytic-heading span {
     font-size: 27px;
   }
@@ -287,6 +297,10 @@
 
   .aitext {
     font-size: 14px;
+  }
+
+  .analytic-illus{
+    grid-template-columns: 300px;
   }
 
   .analytic-content-inner {
