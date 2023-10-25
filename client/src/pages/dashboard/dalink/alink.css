@@ -12,6 +12,31 @@
   padding: 15px;
 }
 
+.alink-illus-container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 25px -1px #e3effb;
+  padding: 15px;
+}
+
+.alink-illus {
+  display: grid;
+  grid-template-columns: 600px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.alink-illus img {
+  width: 100%;
+  object-fit: cover;
+}
+
 .alink-title {
   display: flex;
   justify-content: space-between;
@@ -67,9 +92,13 @@
     font-size: 18px;
   }
   .alink-heading {
-    grid-template-columns:80px 130px 480px 130px 80px;
+    grid-template-columns: 80px 130px 480px 130px 80px;
     gap: 10px;
     font-size: 14px;
+  }
+
+  .alink-illus {
+    grid-template-columns: 250px;
   }
 }
 

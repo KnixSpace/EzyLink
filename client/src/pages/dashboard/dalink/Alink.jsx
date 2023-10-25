@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Slink from "../../../components/link/Slink";
+import noData from "../../../assets/no-data.png";
 import "./alink.css";
 
 const Alink = ({ userData }) => {
@@ -32,7 +33,11 @@ const Alink = ({ userData }) => {
   if (urlData.length === 0) {
     return (
       <>
-        <div className="alink-main">no urls</div>
+        <div className="alink-illus-container">
+          <div className="alink-illus">
+            <img src={noData} alt="" />
+          </div>
+        </div>
       </>
     );
   }
