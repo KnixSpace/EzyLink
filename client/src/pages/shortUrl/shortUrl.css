@@ -29,6 +29,9 @@
   font-size: 24px;
   font-weight: 600;
   background: none;
+}
+
+.shortUrl-url a {
   color: #7f7d9c;
 }
 
@@ -59,7 +62,7 @@
   color: #7f7d9c;
 }
 
-.shortUrl-close:hover{
+.shortUrl-close:hover {
   cursor: pointer;
 }
 
@@ -78,12 +81,12 @@
     font-size: 18px;
   }
 
-  .shortUrl-close{
+  .shortUrl-close {
     top: 30px;
     right: 30px;
   }
 
-  .shortUrl-copy{
+  .shortUrl-copy {
     bottom: 160px;
     padding: 5px 10px;
     font-size: 14px;

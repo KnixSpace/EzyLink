@@ -14,7 +14,7 @@
 
 .url-illustration {
   display: grid;
-  grid-template-columns:  600px;
+  grid-template-columns: 700px;
   overflow: hidden;
 }
 
@@ -79,7 +79,6 @@
   background: #0276ff;
   color: #e3effb;
 }
-
 
 @media (max-width: 640px) {
   .url-container {
