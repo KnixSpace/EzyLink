@@ -131,15 +131,13 @@ const Analytics = ({ userData }) => {
             >
               search
             </button>
-            <button className="mini-search">
-              <span
-                className="material-icons-outlined"
-                onClick={() => {
-                  handelClick();
-                }}
-              >
-                search
-              </span>
+            <button
+              className="mini-search"
+              onClick={() => {
+                handelClick();
+              }}
+            >
+              <span className="material-icons-outlined">search</span>
             </button>
           </div>
         </div>
