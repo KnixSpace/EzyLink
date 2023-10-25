@@ -7,6 +7,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Url from "./pages/url/Url";
 import Login from "./pages/login-signup/Login";
 import Home from "./pages/home/Home";
+import ErrorPage from "./pages/404/ErrorPage";
 import { AnimatePresence } from "framer-motion";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -47,6 +48,7 @@ function App() {
               <Route path="analytics" element={<Analytics userData={user} />} />
               <Route path="links" element={<Alink userData={user} />} />
             </Route>
+            <Route path="*" element={<ErrorPage />}></Route>
           </Route>
         </Routes>
       </AnimatePresence>
