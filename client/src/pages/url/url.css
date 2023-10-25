@@ -12,6 +12,17 @@
   left: 0;
 }
 
+.url-illustration {
+  display: grid;
+  grid-template-columns:  600px;
+  overflow: hidden;
+}
+
+.url-illustration img {
+  width: 100%;
+  object-fit: cover;
+}
+
 .url-shortner {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 600px));
@@ -68,6 +79,7 @@
   background: #0276ff;
   color: #e3effb;
 }
+
 
 @media (max-width: 640px) {
   .url-container {

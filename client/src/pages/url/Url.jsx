@@ -6,6 +6,7 @@ import { openLimit } from "../../components/Limit/limitSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
+import lPage from "../../assets/landing-page.png";
 import "./url.css";
 
 const Url = () => {
@@ -91,7 +92,9 @@ const Url = () => {
             </button>
             {isLimit && <Limit key={7} />}
           </div>
-          <div className="url-illustration">i</div>
+          <div className="url-illustration">
+            <img src={lPage} alt="" />
+          </div>
         </div>
       </AnimatePresence>
     </>
