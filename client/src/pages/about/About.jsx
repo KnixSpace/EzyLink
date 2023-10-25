@@ -72,8 +72,10 @@ const About = () => {
             <span className="about-text">
               I value your feedback and inquiries. If you have any questions,
               suggestions, or concerns, please don't hesitate to get in touch
-              with me. You can reach out through by emailing
-              me directly at your_email@example.com.
+              with me. You can reach out through by emailing me directly at
+              <a href="developer.ezylink@gmail.com">
+                developer.ezylink@gmail.com
+              </a>
             </span>
           </div>
           <span className="about-text">
@@ -88,4 +90,3 @@ const About = () => {
   );
 };
 export default About;
-

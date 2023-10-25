@@ -50,6 +50,10 @@ li {
   padding: 5px;
 }
 
+.about-text a{
+  color: #0276ff;
+}
+
 .about-text li {
   padding-block: 5px;
 }
