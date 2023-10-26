@@ -27,14 +27,14 @@ router.get("/api/logout", (req, res) => {
     if (err) {
       return next(err);
     }
-    res.redirect(process.env.HOME);
+    res.redirect(process.env.CLIENT_HOME);
   });
 });
 
 router.get(
   "/callback",
   passport.authenticate("google", {
-    successRedirect: process.env.HOST_DASHBOARD,
+    successRedirect: process.env.CLIENT_DASHBOARDHBOARD,
     failureRedirect: "/api/login",
   })
 );

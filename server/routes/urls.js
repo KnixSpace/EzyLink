@@ -38,7 +38,7 @@ router.post("/api/url/free", limiter, async (req, res) => {
     await redis.incr("counter");
   } while (i >= 0);
 
-  const cliUrl = process.env.PRODUCTION_HOST + shortUrl;
+  const cliUrl = process.env.SERVER_HOST + shortUrl;
   const newUrl = new Url({
     longUrl,
     shortUrl,
@@ -72,7 +72,7 @@ router.post("/api/url/paid", ensurAuthenticated, async (req, res) => {
     await redis.incr("counter");
   }
 
-  const cliUrl = process.env.PRODUCTION_HOST + shortUrl;
+  const cliUrl = process.env.SERVER_HOST + shortUrl;
 
   const newUrl = new Url({
     longUrl,

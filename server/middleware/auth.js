@@ -1,7 +1,8 @@
+require("dotenv").config();
 function ensurAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   }
-  res.redirect("https://localhost:3000/");
+  res.redirect(process.env.CLIENT_HOME);
 }
 module.exports.ensurAuthenticated = ensurAuthenticated;

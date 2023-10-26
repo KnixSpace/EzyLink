@@ -1,16 +1,15 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 const { UrlData } = require("../models/paidUrl");
 const updateData = async (shortUrl) => {
   // fetch user ip for country
-  const ipData = await fetch(
-    "https://ipapi.co/json/?key=cHyPtxjkU8YjP9qLOiSpLVGYyEWdyCgWycVKuoAaQGRuxQVH9O"
-  );
+  const ipData = await fetch(process.env.IP_DATA);
   const res = await ipData.json();
   let country = res.country_name;
   // console.log(country, res);
 
   if (!country) {
-    const ipData = await fetch("http://ip-api.com/json/?fields=status,country");
+    const ipData = await fetch(process.env.IP_DATA_BACKUP);
     const res = await ipData.json();
     country = res.country;
   }
