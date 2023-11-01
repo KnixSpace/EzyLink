@@ -27,7 +27,7 @@ app.use(passport.session());
 
 app.use(
   cors({
-    origin: process.env.CLIENT_HOME,
+    origin: "https://ezylink.onrender.com",
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
   })
