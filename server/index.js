@@ -33,6 +33,10 @@ app.use(
   })
 );
 
+app.get("/hello", (req, res) => {
+  res.send("server is working");
+});
+
 require("./startup/db")();
 initialSet();
 app.use("/auth", login);
