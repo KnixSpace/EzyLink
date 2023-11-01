@@ -8,7 +8,7 @@ import "./login.css";
 const Login = () => {
   const dispatch = useDispatch();
   const googleAuth = () => {
-    window.open("http://localhost:3000/auth/api/login", "_self");
+    window.open(import.meta.env.VITE_LOGIN, "_self");
   };
   return (
     <>

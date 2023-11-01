@@ -28,7 +28,7 @@ const Url = () => {
       return;
     }
 
-    const res = await fetch("http://localhost:3000/api/url/free", {
+    const res = await fetch(import.meta.env.VITE_URL_FREE, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

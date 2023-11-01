@@ -12,17 +12,14 @@ const DHome = ({ userData }) => {
       email: userData.email,
     };
     const getData = async () => {
-      const rawData = await fetch(
-        "http://localhost:3000/api/url/dashboard/data",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(userId),
-          credentials: "include",
-        }
-      );
+      const rawData = await fetch(import.meta.env.VITE_DASHBOARD_HOME, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userId),
+        credentials: "include",
+      });
       const { total, geoData, lineData } = await rawData.json();
       setTotal(total);
       setGeoDatas(geoData);

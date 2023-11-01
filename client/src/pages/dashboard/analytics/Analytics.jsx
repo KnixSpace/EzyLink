@@ -36,7 +36,7 @@ const Analytics = ({ userData }) => {
       shortUrl,
     };
 
-    fetch("http://localhost:3000/api/url/link/analytics", {
+    fetch(import.meta.env.VITE_DASHBOARD_ANALYTICS, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

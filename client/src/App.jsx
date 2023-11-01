@@ -17,7 +17,7 @@ function App() {
   const { isOpen } = useSelector((store) => store.loginPage);
   useEffect(() => {
     const getUser = async () => {
-      const res = await fetch("http://localhost:3000/auth/api/login/success", {
+      const res = await fetch(import.meta.env.VITE_LOGIN_SUCCESS, {
         method: "GET",
         credentials: "include",
       });

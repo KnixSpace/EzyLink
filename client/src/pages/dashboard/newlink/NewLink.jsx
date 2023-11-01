@@ -28,7 +28,7 @@ const NewLink = ({ userData }) => {
       setUrlError("Please enter correct URL");
       return;
     }
-    const res = await fetch("http://localhost:3000/api/url/paid", {
+    const res = await fetch(import.meta.env.VITE_URL_PAID, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -20,8 +20,6 @@ router.get("/:shortUrl", async (req, res) => {
   }
   res.redirect(url.longUrl);
   updateData(shortUrl);
-
-  //Access data storing
 });
 
 router.post("/api/url/free", limiter, async (req, res) => {
@@ -34,10 +32,12 @@ router.post("/api/url/free", limiter, async (req, res) => {
     const findUrl = await Url.findOne({ shortUrl });
     if (!findUrl) {
       i = -1;
+    } else {
+      await redis.incr("counter");
     }
-    await redis.incr("counter");
   } while (i >= 0);
 
+  const rcount = await redis.get("counter");
   const cliUrl = process.env.SERVER_HOST + shortUrl;
   const newUrl = new Url({
     longUrl,
@@ -48,7 +48,6 @@ router.post("/api/url/free", limiter, async (req, res) => {
   const shortUrlRes = {
     shortUrl: cliUrl,
   };
-
   res.send(JSON.stringify(shortUrlRes));
 });
 

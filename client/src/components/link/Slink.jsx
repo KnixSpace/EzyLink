@@ -9,10 +9,10 @@ const Slink = (props) => {
         <span className="slink-item">{createdOn}</span>
         <a
           className="slink-item"
-          href={`http://localhost:3000/${shortUrl}`}
+          href={import.meta.env.VITE_SHORT_URL + shortUrl}
           target="_blank"
         >
-          http://localhost:3000/{shortUrl}
+          {import.meta.env.VITE_SHORT_URL + shortUrl}
         </a>
         <span className="slink-item">{totalClicked}</span>
         <span

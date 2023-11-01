@@ -11,7 +11,7 @@ const Alink = ({ userData }) => {
   };
   useEffect(() => {
     const getUrlData = async () => {
-      const rawData = await fetch("http://localhost:3000/api/url/link/all", {
+      const rawData = await fetch(import.meta.env.VITE_DASHBOARD_ALL_LINKS, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

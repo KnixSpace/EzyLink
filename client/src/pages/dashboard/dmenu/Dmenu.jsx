@@ -5,7 +5,7 @@ import "./dmenu.css";
 const Dmenu = () => {
   const { isLargeMenu } = useSelector((store) => store.lgMenuPage);
   const handelLogout = () => {
-    window.open("http://localhost:3000/auth/api/logout", "_self");
+    window.open(import.meta.env.VITE_LOGOUT, "_self");
   };
   return (
     <>
