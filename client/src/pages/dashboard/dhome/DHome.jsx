@@ -34,7 +34,6 @@ const DHome = ({ userData }) => {
 
   const linedatas = [
     [{ type: "date", label: "Day" }, "Clicks"],
-    [new Date("10/09/2023"), 2],
   ];
 
   kdata.map((item) => {

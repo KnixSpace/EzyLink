@@ -87,7 +87,6 @@ const Analytics = ({ userData }) => {
   //line data
   const olineData = [
     [{ type: "date", label: "Day" }, "clicks"],
-    [new Date("10/09/2023"), 2],
   ];
   lineData?.map((item) => {
     const { date, click } = item;
