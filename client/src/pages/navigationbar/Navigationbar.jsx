@@ -5,7 +5,7 @@ import { openPage } from "../login-signup/loginSlice";
 import { useDispatch } from "react-redux";
 import { NavLink, Outlet } from "react-router-dom";
 import "./navigation.css";
-const Navigation = () => {
+const Navigationbar = () => {
   const dispatch = useDispatch();
   return (
     <>
@@ -64,4 +64,4 @@ const Navigation = () => {
     </>
   );
 };
-export default Navigation;
+export default Navigationbar;
