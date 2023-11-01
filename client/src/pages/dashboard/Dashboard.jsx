@@ -5,10 +5,13 @@ import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./dashboard.css";
 import DSmallMenu from "./dsmallMenu/DSmallMenu";
+import Credit from "../credit/Credit";
 const Dashboard = ({ userData }) => {
   const { isLargeMenu } = useSelector((store) => store.lgMenuPage);
+  const { isCredit } = useSelector((store) => store.creditPage);
   return (
     <>
+      {isCredit && <Credit />}
       <div className="dash-main">
         <DNavbar userData={userData} />
         <div className="dash-container flex-grow-1">
@@ -18,7 +21,7 @@ const Dashboard = ({ userData }) => {
           >
             <Dmenu />
           </div>
-          <DSmallMenu/>
+          <DSmallMenu />
           <div className="content-container">
             <Outlet />
           </div>
