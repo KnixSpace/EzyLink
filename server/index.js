@@ -21,7 +21,7 @@ const cookieOptions = {
 };
 
 app.use((req, res, next) => {
-  console.log(process.env.NODE_ENV, cookieOptions);
+  console.log(process.env.NODE_ENV, process.env.CLIENT_HOME, cookieOptions);
   res.cookie("test", "This is a random cookie", cookieOptions);
   next();
 });
@@ -31,7 +31,7 @@ app.use(
     secret: "infinix",
     resave: false,
     saveUninitialized: true,
-    cookie: cookieOptions,
+    cookie: { ...cookieOptions, domain: "ezylink.onrender.com" },
     store: MongoStore.create({ mongoUrl: process.env.MONGO_CONNECTION_STRING }),
   })
 );
