@@ -13,17 +13,15 @@ const cookieParser = require("cookie-parser");
 
 require("dotenv").config();
 require("./startup/passport");
-
+app.set("trust proxy", 1);
 app.use(express.json());
 
 const cookieOptions = {
   httpOnly: true,
   secure: process.env.NODE_ENV === "production",
-  sameSite: process.env.NODE_ENV === "development" ? "Lax" : "none",
+  sameSite: process.env.NODE_ENV === "development" ? "lax" : "none",
   maxAge: Date.now() + 7 * 24 * 60 * 60 * 1000,
 };
-
-app.use(cookieParser());
 
 app.use(
   session({
@@ -34,16 +32,6 @@ app.use(
     store: MongoStore.create({ mongoUrl: process.env.MONGO_CONNECTION_STRING }),
   })
 );
-
-app.use((req, res, next) => {
-  console.log(req.sessionID, "😊😂😂🤣🤣");
-  res.cookie("connect.sid", req.sessionID, cookieOptions);
-  res.cookie("test.12", req.sessionID, cookieOptions);
-
-  console.log(process.env.NODE_ENV, process.env.CLIENT_HOME, cookieOptions);
-  console.log("b✨✨✨✨✨✨✨", req.cookies);
-  next();
-});
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -64,7 +52,7 @@ initialSet();
 app.use("/auth", login);
 app.use("/", urls);
 
-const PORT = 3000 || process.env.PORT;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server connected on ${PORT}...`);
 });
