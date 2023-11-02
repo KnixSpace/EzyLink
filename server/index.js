@@ -13,12 +13,16 @@ require("./startup/passport");
 
 app.use(express.json());
 
-app.use((req, res, next) => {
-  console.log(process.env.NODE_ENV, {
-    secure: process.env.NODE_ENV === "production",
-    sameSite: process.env.NODE_ENV === "development" ? "Lax" : "none",
-  });
+const cookieOptions = {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production",
+  sameSite: process.env.NODE_ENV === "development" ? "Lax" : "none",
+  maxAge: Date.now() + 7 * 24 * 60 * 60 * 1000,
+};
 
+app.use((req, res, next) => {
+  console.log(process.env.NODE_ENV, cookieOptions);
+  res.cookie("test", "This is a random cookie", cookieOptions);
   next();
 });
 
@@ -27,11 +31,7 @@ app.use(
     secret: "infinix",
     resave: false,
     saveUninitialized: true,
-    cookie: {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "development" ? "Lax" : "none",
-    },
+    cookie: cookieOptions,
     store: MongoStore.create({ mongoUrl: process.env.MONGO_CONNECTION_STRING }),
   })
 );
