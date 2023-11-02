@@ -11,6 +11,11 @@ const app = express();
 require("dotenv").config();
 require("./startup/passport");
 
+console.log(process.env.NODE_ENV, {
+  secure: process.env.NODE_ENV === "production",
+  sameSite: process.env.NODE_ENV === "development" ? "Lax" : "None",
+});
+
 app.use(express.json());
 app.use(
   session({
