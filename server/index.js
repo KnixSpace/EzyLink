@@ -17,7 +17,7 @@ app.use(
     secret: "infinix",
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false },
+    cookie: { secure: false, sameSite: process.env.NODE_ENV === 'development' ? 'Lax' : 'None'  },
     store: MongoStore.create({ mongoUrl: process.env.MONGO_CONNECTION_STRING }),
   })
 );
