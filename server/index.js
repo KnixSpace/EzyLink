@@ -16,7 +16,7 @@ app.use(express.json());
 app.use((req, res, next) => {
   console.log(process.env.NODE_ENV, {
     secure: process.env.NODE_ENV === "production",
-    sameSite: process.env.NODE_ENV === "development" ? "Lax" : "None",
+    sameSite: process.env.NODE_ENV === "development" ? "Lax" : "none",
   });
 
   next();
@@ -28,8 +28,9 @@ app.use(
     resave: false,
     saveUninitialized: true,
     cookie: {
+      httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "development" ? "Lax" : "None",
+      sameSite: process.env.NODE_ENV === "development" ? "Lax" : "none",
     },
     store: MongoStore.create({ mongoUrl: process.env.MONGO_CONNECTION_STRING }),
   })
