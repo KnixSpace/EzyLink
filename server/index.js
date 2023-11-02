@@ -10,9 +10,9 @@ const express = require("express");
 const app = express();
 
 const cookieParser = require("cookie-parser");
-
 require("dotenv").config();
 require("./startup/passport");
+app.set("trust proxy", 1);
 app.use(express.json());
 
 const cookieOptions = {
@@ -27,7 +27,7 @@ app.use(
     secret: "infinix",
     resave: false,
     saveUninitialized: true,
-    cookie: { ...cookieOptions },
+    cookie: { ...cookieOptions, domain: ".onrender.com" },
     store: MongoStore.create({ mongoUrl: process.env.MONGO_CONNECTION_STRING }),
   })
 );
