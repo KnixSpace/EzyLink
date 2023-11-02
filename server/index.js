@@ -8,6 +8,10 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
+
+const cookieParser = require('cookie-parser')
+
+
 require("dotenv").config();
 require("./startup/passport");
 
@@ -26,6 +30,8 @@ app.use((req, res, next) => {
   res.cookie("test", "This is a random cookie", cookieOptions);
   next();
 });
+
+app.use(cookieParser())
 
 app.use(
   session({
