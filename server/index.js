@@ -9,8 +9,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
 
-const cookieParser = require('cookie-parser')
-
+const cookieParser = require("cookie-parser");
 
 require("dotenv").config();
 require("./startup/passport");
@@ -24,6 +23,8 @@ const cookieOptions = {
   maxAge: Date.now() + 7 * 24 * 60 * 60 * 1000,
 };
 
+app.use(cookieParser());
+
 app.use((req, res, next) => {
   console.log(process.env.NODE_ENV, process.env.CLIENT_HOME, cookieOptions);
   console.log("b✨✨✨✨✨✨✨", req.cookies);
@@ -31,14 +32,12 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(cookieParser())
-
 app.use(
   session({
     secret: "infinix",
     resave: false,
     saveUninitialized: true,
-    cookie: { ...cookieOptions, domain: "ezylink.onrender.com" },
+    cookie: { ...cookieOptions },
     store: MongoStore.create({ mongoUrl: process.env.MONGO_CONNECTION_STRING }),
   })
 );
