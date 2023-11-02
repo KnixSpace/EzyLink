@@ -13,7 +13,6 @@ const cookieParser = require("cookie-parser");
 
 require("dotenv").config();
 require("./startup/passport");
-app.set("trust proxy", 1);
 app.use(express.json());
 
 const cookieOptions = {
