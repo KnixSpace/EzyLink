@@ -25,13 +25,6 @@ const cookieOptions = {
 
 app.use(cookieParser());
 
-app.use((req, res, next) => {
-  console.log(process.env.NODE_ENV, process.env.CLIENT_HOME, cookieOptions);
-  console.log("b✨✨✨✨✨✨✨", req.cookies);
-  res.cookie("test", "This is a random cookie", cookieOptions);
-  next();
-});
-
 app.use(
   session({
     secret: "infinix",
@@ -41,6 +34,16 @@ app.use(
     store: MongoStore.create({ mongoUrl: process.env.MONGO_CONNECTION_STRING }),
   })
 );
+
+app.use((req, res, next) => {
+  console.log(req.sessionID, "😊😂😂🤣🤣");
+  res.cookie("connect.sid", req.sessionID, cookieOptions);
+  res.cookie("test.12", req.sessionID, cookieOptions);
+
+  console.log(process.env.NODE_ENV, process.env.CLIENT_HOME, cookieOptions);
+  console.log("b✨✨✨✨✨✨✨", req.cookies);
+  next();
+});
 
 app.use(passport.initialize());
 app.use(passport.session());
