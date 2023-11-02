@@ -22,6 +22,7 @@ const cookieOptions = {
 
 app.use((req, res, next) => {
   console.log(process.env.NODE_ENV, process.env.CLIENT_HOME, cookieOptions);
+  console.log("b✨✨✨✨✨✨✨", req.cookies);
   res.cookie("test", "This is a random cookie", cookieOptions);
   next();
 });
