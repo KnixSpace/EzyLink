@@ -33,7 +33,6 @@ app.use(
   })
 );
 
-require("./startup/db")();
 initialSet();
 
 app.use("/auth", login);
