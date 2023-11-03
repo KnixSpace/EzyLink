@@ -21,7 +21,7 @@
 
 .analytic-searchbar {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(300px ,1fr);
   justify-items: center;
   gap: 20px;
 }
