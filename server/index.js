@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
 app.set("trust proxy", 1);
-app.get("api/ip", (request, response) => response.send(request.ip));
+app.get("/api/ip", (request, response) => response.send(request.ip));
 
 require("dotenv").config();
 require("./startup/passport");
