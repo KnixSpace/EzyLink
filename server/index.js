@@ -20,7 +20,7 @@ app.use(
     secret: "infinix",
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true , sameSite : "none" },
+    cookie: { secure: true, sameSite: "none", domain: "ezylink.onrender.com" },
     store: MongoStore.create({ mongoUrl: process.env.MONGO_CONNECTION_STRING }),
   })
 );
