@@ -35,10 +35,21 @@ app.use(
 
 require("./startup/db")();
 initialSet();
+
 app.use("/auth", login);
 app.use("/", urls);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server connected on ${PORT}...`);
-});
+mongoose
+  .connect(process.env.MONGO_CONNECTION_STRING)
+  .then(() => {
+    console.log("Connected to Database...");
+    app.listen(PORT, () => {
+      console.log(`Server connected on ${PORT}...`);
+    });
+  })
+  .catch((err) => {
+    console.log("failed to connect MongoDb");
+    console.log(err);
+    process.exit(1);
+  });
