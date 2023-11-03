@@ -8,14 +8,9 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
-app.set("trust proxy", 1);
-app.get("/api/hello", (req, res) => {
-  res.send("Infinix is Alive!!");
-});
-
 require("dotenv").config();
 require("./startup/passport");
-
+app.set("trust proxy", 1);
 app.use(express.json());
 app.use(
   session({
@@ -32,18 +27,18 @@ app.use(passport.session());
 
 app.use(
   cors({
-    origin: "https://ezylink.onrender.com",
+    origin: process.env.CLIENT_HOME,
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
   })
 );
 
+// require("./startup/db")();
 initialSet();
-
 app.use("/auth", login);
 app.use("/", urls);
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000 || process.env.PORT;
 mongoose
   .connect(process.env.MONGO_CONNECTION_STRING)
   .then(() => {
@@ -52,8 +47,4 @@ mongoose
       console.log(`Server connected on ${PORT}...`);
     });
   })
-  .catch((err) => {
-    console.log("failed to connect MongoDb");
-    console.log(err);
-    process.exit(1);
-  });
+  .catch((err) => console.log(err));
