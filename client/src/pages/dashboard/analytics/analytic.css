@@ -264,6 +264,9 @@
 }
 
 @media (max-width: 768px) {
+  .analytic-content {
+    padding: 20px 0px 0px 0px;
+  }
   .analytic-title {
     font-size: 18px;
   }
@@ -305,7 +308,7 @@
 
   .analytic-content-inner {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto 250px 250px;
+    grid-template-rows: auto auto auto 200px 200px;
   }
 }
 
@@ -315,5 +318,9 @@
   }
   .analytic-heading span {
     font-size: 20px;
+  }
+  .analytic-content-inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto 180px 180px;
   }
 }
