@@ -4,7 +4,10 @@ const router = require("express").Router();
 
 router.get(
   "/api/login",
-  passport.authenticate("google", { scope: ["profile", "email"] })
+  passport.authenticate("google", {
+    scope: ["profile", "email"],
+    session: true,
+  })
 );
 
 router.get("/api/login/success", (req, res) => {
@@ -34,6 +37,7 @@ router.get("/api/logout", (req, res) => {
 router.get(
   "/callback",
   passport.authenticate("google", {
+    session: true,
     successRedirect: process.env.CLIENT_DASHBOARDHBOARD,
     failureRedirect: "/api/login",
   })
