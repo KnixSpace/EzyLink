@@ -17,12 +17,25 @@ function App() {
   const { isOpen } = useSelector((store) => store.loginPage);
   useEffect(() => {
     const getUser = async () => {
-      const res = await fetch(import.meta.env.VITE_LOGIN_SUCCESS, {
-        method: "GET",
-        credentials: "include",
-      });
-      const data = await res.json();
-      setUser(data.user._json);
+      const getUser = async () => {
+        try {
+          const res = await fetch(import.meta.env.VITE_LOGIN_SUCCESS, {
+            method: "GET",
+            credentials: "include",
+          });
+          if (res.ok) {
+            const data = await res.json();
+            setUser(data.user._json);
+          } else {
+            // Handle authentication error or redirect to login if necessary
+            // For example, you can show the login page again
+            // or redirect the user to the login page.
+          }
+        } catch (error) {
+          // Handle fetch error (e.g., network error)
+          console.error("Fetch error:", error);
+        }
+      };
     };
     getUser();
   }, []);
