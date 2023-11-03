@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 function App() {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const { isOpen } = useSelector((store) => store.loginPage);
   useEffect(() => {
     const getUser = async () => {
@@ -33,6 +34,8 @@ function App() {
       } catch (error) {
         // Handle fetch error (e.g., network error)
         console.error("Fetch error:", error);
+      } finally {
+        setLoading(false); // Set loading to false regardless of the outcome
       }
     };
     getUser();
@@ -41,28 +44,25 @@ function App() {
     <>
       <AnimatePresence>
         {isOpen && <Login key={1} />}
-        <Routes key={2}>
-          <Route path="/" element={user ? null : <Home />}>
-            <Route
-              index
-              element={user ? <Navigate to={"/dashboard"} /> : <Url />}
-            ></Route>
-            <Route path="about" element={<About />}></Route>
-            <Route
-              path="dashboard"
-              element={
-                user ? <Dashboard userData={user} /> : <Navigate to={"/"} />
-              }
-            >
-              <Route path="" element={<DHome userData={user} />} />
+        {loading ? ( // Display a loading state while user data is being fetched
+          <div>Loading...</div>
+        ) : user ? (
+          <Routes key={2}>
+            <Route path="/">
+              <Navigate to="/dashboard" />
+            </Route>
+            <Route path="about" element={<About />} />
+            <Route path="dashboard" element={<Dashboard userData={user} />}>
+              <Route index element={<DHome userData={user} />} />
               <Route path="newlink" element={<NewLink userData={user} />} />
               <Route path="analytics" element={<Analytics userData={user} />} />
               <Route path="links" element={<Alink userData={user} />} />
-              <Route path="*" element={<ErrorPage />}></Route>
             </Route>
-            <Route path="*" element={<ErrorPage />}></Route>
-          </Route>
-        </Routes>
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        ) : (
+          <Home />
+        )}
       </AnimatePresence>
     </>
   );
