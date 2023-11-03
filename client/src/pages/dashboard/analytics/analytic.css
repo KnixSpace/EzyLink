@@ -1,7 +1,7 @@
 .analytic-main {
   width: 100%;
   display: grid;
-  grid-template-columns: minmax(400px, 1fr);
+  grid-template-columns: minmax(300px, 1fr);
   grid-template-rows: auto auto 1fr;
   height: 100%;
   justify-content: center;
@@ -306,5 +306,15 @@
   .analytic-content-inner {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto 250px 250px;
+  }
+}
+
+
+@media (max-width: 640px) {
+  .analytic-heading {
+    font-size: 20px;
+  } 
+  .analytic-heading span {
+    font-size: 20px;
   }
 }
