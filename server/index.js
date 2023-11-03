@@ -8,6 +8,7 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
+app.set("trust proxy", true);
 require("dotenv").config();
 require("./startup/passport");
 
