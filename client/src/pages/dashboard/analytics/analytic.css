@@ -21,7 +21,7 @@
 
 .analytic-searchbar {
   display: grid;
-  grid-template-columns: minmax(300px ,1fr);
+  grid-template-columns: minmax(300px, 1fr);
   justify-items: center;
   gap: 20px;
 }
@@ -280,7 +280,7 @@
     padding-inline: 10px;
   }
   .input-div {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(140px, 1fr) auto;
   }
 
   .atitle {
@@ -299,7 +299,7 @@
     font-size: 14px;
   }
 
-  .analytic-illus{
+  .analytic-illus {
     grid-template-columns: 300px;
   }
 
@@ -309,11 +309,10 @@
   }
 }
 
-
 @media (max-width: 640px) {
   .analytic-heading {
     font-size: 20px;
-  } 
+  }
   .analytic-heading span {
     font-size: 20px;
   }
