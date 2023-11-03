@@ -11,6 +11,9 @@ const app = express();
 require("dotenv").config();
 require("./startup/passport");
 app.set("trust proxy", 1);
+app.get("/api/hello", (req, res) => {
+  res.send("Infinix is Alive!");
+});
 app.use(express.json());
 app.use(
   session({
