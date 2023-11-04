@@ -19,7 +19,7 @@ app.use(
   session({
     secret: "infinix",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: { secure: true, sameSite: "none", domain: ".onrender.com" },
     // cookie: { secure: false },
     store: MongoStore.create({ mongoUrl: process.env.MONGO_CONNECTION_STRING }),
