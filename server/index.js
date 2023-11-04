@@ -23,7 +23,13 @@ app.use(
     secret: "infinix",
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: true, sameSite: "none", domain: ".onrender.com" ,maxAge : 600000},
+    // cookie: {
+    //   secure: true,
+    //   sameSite: "none",
+    //   domain: ".onrender.com",
+    //   maxAge: 600000,
+    // },
+    cookie: { secure: false },
     store: MongoStore.create({ mongoUrl: process.env.MONGO_CONNECTION_STRING }),
   })
 );

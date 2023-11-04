@@ -10,6 +10,7 @@ router.get(
   })
 );
 
+// /users/me
 router.get("/api/login/success", (req, res) => {
   res.status(200).json({
     success: true,

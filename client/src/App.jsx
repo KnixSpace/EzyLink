@@ -12,9 +12,13 @@ import { AnimatePresence } from "framer-motion";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+
+let renderCount = 0;
+
 function App() {
   const [user, setUser] = useState(null);
   const { isOpen } = useSelector((store) => store.loginPage);
+
   useEffect(() => {
     const getUser = () => {
       fetch(import.meta.env.VITE_LOGIN_SUCCESS, {
@@ -29,7 +33,8 @@ function App() {
           }
         })
         .then((data) => {
-          setUser(data.user._json);
+          console.log(data);
+          if (data.user) setUser(data.user._json);
         })
         .catch((error) => {
           console.error("Fetch error:", error);
@@ -46,9 +51,10 @@ function App() {
           <Route path="/" element={user ? null : <Home />}>
             <Route
               index
-              element={user ? <Navigate to={"/dashboard"} /> : <Url />}
+              element={user ? <Navigate to="/dashboard" /> : <Url />}
             ></Route>
             <Route path="about" element={<About />}></Route>
+            {console.log(user, ++renderCount)}
             <Route
               path="dashboard"
               element={
