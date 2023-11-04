@@ -14,12 +14,16 @@ const Analytics = ({ userData }) => {
   const [error, setError] = useState(false);
   const [urlError, setUrlError] = useState("");
 
+  let num = 0;
   const getFlag = async (country) => {
     const data = await fetch(
       `https://restcountries.com/v3.1/name/${country}?fields=flags`
     );
     const rdata = await data.json();
-    return rdata[0].flags.png;
+    if (country === "India") {
+      return rdata[1]?.flags?.png;
+    }
+    return rdata[0]?.flags?.png;
   };
 
   const handelClick = async () => {
@@ -66,11 +70,9 @@ const Analytics = ({ userData }) => {
         newDate.setFullYear(cDate.getFullYear() + 10);
         const stdate = newDate.toLocaleDateString("en-IN");
         setEDate(stdate);
-
         const flagPromise = rawData?.geoData
           .slice(1)
           .map((item) => getFlag(item[0]));
-
         Promise.all(flagPromise)
           .then((rflagData) => {
             setFlagData(rflagData);
@@ -80,14 +82,11 @@ const Analytics = ({ userData }) => {
           });
       });
   };
-
   const { isActive, longUrl, createdOn, totalClicked, lineData, geoData } =
     data;
 
   //line data
-  const olineData = [
-    [{ type: "date", label: "Day" }, "clicks"],
-  ];
+  const olineData = [[{ type: "date", label: "Day" }, "clicks"]];
   lineData?.map((item) => {
     const { date, click } = item;
     olineData.push([new Date(date), click]);
