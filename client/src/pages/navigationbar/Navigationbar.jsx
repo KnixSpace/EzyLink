@@ -32,7 +32,7 @@ const Navigationbar = () => {
           </NavLink>
           <NavLink
             className={"navigation-item"}
-            onClick={() => {goog
+            onClick={() => {
               dispatch(openPage());
             }}
           >

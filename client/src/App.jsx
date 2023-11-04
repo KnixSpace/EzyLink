@@ -13,8 +13,6 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
-let renderCount = 0;
-
 function App() {
   const [user, setUser] = useState(null);
   const { isOpen } = useSelector((store) => store.loginPage);
@@ -44,34 +42,31 @@ function App() {
   }, []);
 
   return (
-    <>
-      <AnimatePresence>
-        {isOpen && <Login key={1} />}
-        <Routes key={2}>
-          <Route path="/" element={user ? null : <Home />}>
-            <Route
-              index
-              element={user ? <Navigate to="/dashboard" /> : <Url />}
-            ></Route>
-            <Route path="about" element={<About />}></Route>
-            {console.log(user, ++renderCount)}
-            <Route
-              path="dashboard"
-              element={
-                user ? <Dashboard userData={user} /> : <Navigate to={"/"} />
-              }
-            >
-              <Route path="" element={<DHome userData={user} />} />
-              <Route path="newlink" element={<NewLink userData={user} />} />
-              <Route path="analytics" element={<Analytics userData={user} />} />
-              <Route path="links" element={<Alink userData={user} />} />
-              <Route path="*" element={<ErrorPage />}></Route>
-            </Route>
+    <AnimatePresence>
+      {isOpen && <Login key={1} />}
+      <Routes key={2}>
+        <Route path="/" element={user ? null : <Home />}>
+          <Route
+            index
+            element={user ? <Navigate to="/dashboard" /> : <Url />}
+          ></Route>
+          <Route path="about" element={<About />}></Route>
+          <Route
+            path="dashboard"
+            element={
+              user ? <Dashboard userData={user} /> : <Navigate to={"/"} />
+            }
+          >
+            <Route path="" element={<DHome userData={user} />} />
+            <Route path="newlink" element={<NewLink userData={user} />} />
+            <Route path="analytics" element={<Analytics userData={user} />} />
+            <Route path="links" element={<Alink userData={user} />} />
             <Route path="*" element={<ErrorPage />}></Route>
           </Route>
-        </Routes>
-      </AnimatePresence>
-    </>
+          <Route path="*" element={<ErrorPage />}></Route>
+        </Route>
+      </Routes>
+    </AnimatePresence>
   );
 }
 

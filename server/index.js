@@ -24,7 +24,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: process.env.NODE_ENV !== "development" ,
+      secure: process.env.NODE_ENV !== "development",
       sameSite: process.env.NODE_ENV === "development" ? "lax" : "none",
       domain:
         process.env.NODE_ENV === "development" ? "localhost" : ".onrender.com",
@@ -39,7 +39,7 @@ app.use(passport.session());
 
 app.use(
   cors({
-    origin: process.env.CLIENT_HOME,
+    origin: /^/,
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
   })
