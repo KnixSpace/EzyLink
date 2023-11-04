@@ -7,6 +7,7 @@ const MongoStore = require("connect-mongo");
 const passport = require("passport");
 const mongoose = require("mongoose");
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const app = express();
 require("dotenv").config();
 require("./startup/passport");
@@ -15,13 +16,14 @@ app.get("/api/hello", (req, res) => {
   res.send("Infinix is Alive!");
 });
 app.use(express.json());
+app.use(cookieParser());
+
 app.use(
   session({
     secret: "infinix",
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: true, sameSite: "none", domain: ".onrender.com" },
-    // cookie: { secure: false },
+    cookie: { secure: true, sameSite: "none", domain: ".onrender.com" ,maxAge : 600000},
     store: MongoStore.create({ mongoUrl: process.env.MONGO_CONNECTION_STRING }),
   })
 );
