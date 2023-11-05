@@ -5,10 +5,11 @@ import { AnimatePresence } from "framer-motion";
 import "./newlink.css";
 import { useDispatch, useSelector } from "react-redux";
 import validateUrl from "../../../validations/urlValidator";
-
+import Loadere from "../../../components/loader/Loadere";
 const NewLink = ({ userData }) => {
   const { getUrl } = useSelector((store) => store.shortUrlPage);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
   const [url, setUrl] = useState("");
   const [custom, setCustom] = useState("");
   const [shortUrl, setShortUrl] = useState("");
@@ -28,28 +29,39 @@ const NewLink = ({ userData }) => {
       setUrlError("Please enter correct URL");
       return;
     }
-    const res = await fetch(import.meta.env.VITE_URL_PAID, {
+    setLoading(true);
+    fetch(import.meta.env.VITE_URL_PAID, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newPaid),
       credentials: "include",
-    });
-
-    const data = await res.json();
-    if (data?.error) {
-      setCustom("");
-      setError("Keyword not available");
-      return;
-    }
-
-    setShortUrl(data.shortUrl);
-    dispatch(getUrlOpen());
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Network response was not ok");
+        }
+      })
+      .then((data) => {
+        setLoading(false);
+        if (data?.error) {
+          setCustom("");
+          setError("Keyword not available");
+          return;
+        }
+        setShortUrl(data.shortUrl);
+        dispatch(getUrlOpen());
+      });
   };
   return (
     <>
       <AnimatePresence>
+        <div className="loader-box">
+          <div className="loader-box">{loading && <Loadere key={11} />}</div>
+        </div>
         <div className="newlink-shortUrl">
           {getUrl && <ShortUrl urldata={shortUrl} key={8} />}
         </div>

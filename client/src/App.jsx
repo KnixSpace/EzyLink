@@ -31,7 +31,6 @@ function App() {
           }
         })
         .then((data) => {
-          console.log(data);
           if (data.user) setUser(data.user._json);
         })
         .catch((error) => {

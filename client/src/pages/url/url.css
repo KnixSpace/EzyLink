@@ -6,6 +6,12 @@
   gap: 20px;
 }
 
+.loader-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 .url-short {
   position: fixed;
   top: 0;

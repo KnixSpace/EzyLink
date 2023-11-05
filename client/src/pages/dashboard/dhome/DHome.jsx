@@ -12,18 +12,27 @@ const DHome = ({ userData }) => {
       email: userData.email,
     };
     const getData = async () => {
-      const rawData = await fetch(import.meta.env.VITE_DASHBOARD_HOME, {
+      fetch(import.meta.env.VITE_DASHBOARD_HOME, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(userId),
         credentials: "include",
-      });
-      const { total, geoData, lineData } = await rawData.json();
-      setTotal(total);
-      setGeoDatas(geoData);
-      setKdata(lineData);
+      })
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          } else {
+            throw new Error("Network response was not ok");
+          }
+        })
+        .then((rawData) => {
+          const { total, geoData, lineData } = rawData;
+          setTotal(total);
+          setGeoDatas(geoData);
+          setKdata(lineData);
+        });
     };
     getData();
   }, [refresh]);
@@ -32,9 +41,7 @@ const DHome = ({ userData }) => {
     colorAxis: { colors: ["#e3effb", "#0276ff"] },
   };
 
-  const linedatas = [
-    [{ type: "date", label: "Day" }, "Clicks"],
-  ];
+  const linedatas = [[{ type: "date", label: "Day" }, "Clicks"]];
 
   kdata.map((item) => {
     const { date, click } = item;

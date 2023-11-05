@@ -14,6 +14,12 @@
   gap: 10px;
 }
 
+.loader-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 .analytic-title {
   font-size: 22px;
   font-weight: 500;

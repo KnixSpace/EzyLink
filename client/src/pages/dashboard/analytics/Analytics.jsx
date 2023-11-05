@@ -5,7 +5,9 @@ import Flag from "../../../components/flag/Flag";
 import noData from "../../../assets/no-data.png";
 import analytic from "../../../assets/analytics.png";
 import "./analytic.css";
+import Loadere from "../../../components/loader/Loadere";
 const Analytics = ({ userData }) => {
+  const [loading, setLoading] = useState(false);
   const [blank, setBlank] = useState(true);
   const [url, setUrl] = useState("");
   const [data, setData] = useState("");
@@ -33,6 +35,7 @@ const Analytics = ({ userData }) => {
       setUrlError("Please enter valid Url");
       return;
     }
+    setLoading(true);
     const path = new URL(url).pathname;
     const shortUrl = path.split("/").pop().trim();
     const uData = {
@@ -58,6 +61,7 @@ const Analytics = ({ userData }) => {
         if (rawData.error) {
           setBlank(true);
           setError(true);
+          setLoading(false);
           return;
         }
         setBlank(false);
@@ -80,6 +84,8 @@ const Analytics = ({ userData }) => {
           .catch((error) => {
             console.error("An error occurred:", error);
           });
+
+        setLoading(false);
       });
   };
   const { isActive, longUrl, createdOn, totalClicked, lineData, geoData } =
@@ -98,6 +104,7 @@ const Analytics = ({ userData }) => {
   };
   return (
     <>
+      <div className="loader-box">{loading && <Loadere key={11} />}</div>
       <div className="analytic-main">
         <span className="analytic-title">Analytics</span>
         <div className="analytic-searchbar">

@@ -1,3 +1,4 @@
+import Loadere from "../../components/loader/Loadere";
 import Limit from "../../components/Limit/Limit";
 import validateUrl from "../../validations/urlValidator";
 import ShortUrl from "../shortUrl/ShortUrl";
@@ -8,11 +9,11 @@ import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import lPage from "../../assets/landing-page.png";
 import "./url.css";
-
 const Url = () => {
   const { getUrl } = useSelector((store) => store.shortUrlPage);
   const { isLimit } = useSelector((store) => store.limitPage);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
   const [url, setUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
   const [urlError, setUrlError] = useState("");
@@ -27,29 +28,35 @@ const Url = () => {
       setUrlError("Please enter valid Url");
       return;
     }
-
-    const res = await fetch(import.meta.env.VITE_URL_FREE, {
+    setLoading(true);
+    fetch(import.meta.env.VITE_URL_FREE, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newFree),
       credentials: "include",
-    });
-
-    const data = await res.json();
-    if (data?.error) {
-      dispatch(openLimit());
-      return;
-    }
-    const { shortUrl } = data;
-    setShortUrl(shortUrl);
-    dispatch(getUrlOpen());
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          setLoading(false);
+          dispatch(openLimit());
+        }
+      })
+      .then((data) => {
+        const { shortUrl } = data;
+        setShortUrl(shortUrl);
+        setLoading(false);
+        dispatch(getUrlOpen());
+      });
   };
 
   return (
     <>
       <AnimatePresence>
+        <div className="loader-box">{loading && <Loadere key={11} />}</div>
         <div className="url-short">
           {getUrl && <ShortUrl urldata={shortUrl} key={5} />}
         </div>

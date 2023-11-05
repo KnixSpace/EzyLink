@@ -16,6 +16,12 @@
   left: 0;
 }
 
+.loader-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 .newlink-heading {
   font-size: 35px;
   font-weight: 500;

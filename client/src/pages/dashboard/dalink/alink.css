@@ -12,6 +12,12 @@
   padding: 15px;
 }
 
+.loader-box{
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 .alink-illus-container {
   height: 100%;
   display: grid;
