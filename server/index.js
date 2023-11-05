@@ -27,8 +27,8 @@ app.use(
       secure: process.env.NODE_ENV !== "development",
       sameSite: process.env.NODE_ENV === "development" ? "lax" : "none",
       domain:
-        process.env.NODE_ENV === "development" ? "localhost" : ".onrender.com",
-      maxAge: 600000,
+        process.env.NODE_ENV === "development" ? "localhost" : "ezylink.onrender.com",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
     },
     store: MongoStore.create({ mongoUrl: process.env.MONGO_CONNECTION_STRING }),
   })
