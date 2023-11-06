@@ -39,7 +39,7 @@ function App() {
     };
     getUser();
   }, []);
-
+  console.log(user);
   return (
     <AnimatePresence>
       {isOpen && <Login key={1} />}
