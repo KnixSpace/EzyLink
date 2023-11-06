@@ -26,11 +26,13 @@ app.use(
     cookie: {
       secure: process.env.NODE_ENV !== "development",
       sameSite: process.env.NODE_ENV === "development" ? "lax" : "none",
-      domain:
-        process.env.NODE_ENV === "development" ? "localhost" : "ezylink",
+      domain: process.env.NODE_ENV === "development" ? "localhost" : "ezylink",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     },
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_CONNECTION_STRING }),
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_CONNECTION_STRING,
+      ttl: 7 * 24 * 60 * 60,
+    }),
   })
 );
 
