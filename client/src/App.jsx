@@ -52,7 +52,7 @@ function App() {
           <Route path="about" element={<About />}></Route>
           <Route
             path="dashboard"
-            element={user ? <Dashboard userData={user} /> : <Navigate to="/" />}
+            element={user ? <Dashboard userData={user} /> : <Navigate to={"/"} />}
           >
             <Route path="" element={<DHome userData={user} />} />
             <Route path="newlink" element={<NewLink userData={user} />} />
