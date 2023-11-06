@@ -53,7 +53,7 @@ function App() {
           <Route
             path="dashboard"
             element={
-              user?.name ? <Dashboard userData={user} /> : <Navigate to={"/"} />
+              user?.name ? <Dashboard userData={user} /> : <Navigate to={"/new"} />
             }
           >
             <Route path="" element={<DHome userData={user} />} />
