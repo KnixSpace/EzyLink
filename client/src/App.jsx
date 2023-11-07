@@ -53,10 +53,9 @@ function App() {
           {console.log("outside")}
           <Route
             path="dashboard"
-            // element={
-            //   user ? <Dashboard userData={user} /> : <Navigate to={"/"} />
-            // }
-            element={<Dashboard userData={user} />}
+            element={
+              user ? <Dashboard userData={user} /> : <Navigate to={"/"} />
+            }
           >
             {console.log("inside")}
             <Route path="" element={<DHome userData={user} />} />
