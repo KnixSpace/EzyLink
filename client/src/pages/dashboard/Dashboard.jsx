@@ -9,6 +9,7 @@ import Credit from "../credit/Credit";
 const Dashboard = ({ userData }) => {
   const { isLargeMenu } = useSelector((store) => store.lgMenuPage);
   const { isCredit } = useSelector((store) => store.creditPage);
+  console.log("dashboard");
   if (!userData) {
     return (
       <>
