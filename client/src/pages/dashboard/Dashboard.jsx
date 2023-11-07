@@ -1,7 +1,7 @@
 import DNavbar from "./dnavbar/DNavbar";
 import Dmenu from "./dmenu/Dmenu";
 import Footer from "../footer/Footer";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet, redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./dashboard.css";
 import DSmallMenu from "./dsmallMenu/DSmallMenu";
@@ -9,6 +9,13 @@ import Credit from "../credit/Credit";
 const Dashboard = ({ userData }) => {
   const { isLargeMenu } = useSelector((store) => store.lgMenuPage);
   const { isCredit } = useSelector((store) => store.creditPage);
+  if (!userData) {
+    return (
+      <>
+        <Navigate to={"/"} />
+      </>
+    );
+  }
   return (
     <>
       {isCredit && <Credit />}
