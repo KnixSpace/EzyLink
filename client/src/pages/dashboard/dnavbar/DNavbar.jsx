@@ -35,6 +35,9 @@ const DNavbar = ({ userData }) => {
         <Link to={"/"}>
           <Logo />
         </Link>
+        <div className="nav-beta">
+          Beta
+        </div>
       </div>
       <div className="dnav-links">
         <div className="dnav-user">

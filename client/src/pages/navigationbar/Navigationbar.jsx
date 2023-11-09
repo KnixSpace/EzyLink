@@ -22,6 +22,7 @@ const Navigationbar = () => {
           <NavLink to={"/"}>
             <Logo />
           </NavLink>
+          <div className="nav-beta">Beta</div>
         </div>
         <div className="navigation-links">
           <NavLink to={""} className={"navigation-item"}>

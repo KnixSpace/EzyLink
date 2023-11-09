@@ -20,6 +20,16 @@
   cursor: pointer;
 }
 
+.nav-beta{
+  font-size: 18px;
+  font-weight: 500;
+  padding: 5px 14px;
+  color: #0276ff;
+  border: 1px solid #0276ff;
+  background-color: #e3effb;
+  border-radius: 8px;
+}
+
 .navigation-links {
   display: flex;
   font-size: 20px;
