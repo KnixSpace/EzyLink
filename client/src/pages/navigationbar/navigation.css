@@ -20,7 +20,7 @@
   cursor: pointer;
 }
 
-.nav-beta{
+.nav-beta {
   font-size: 18px;
   font-weight: 500;
   padding: 5px 14px;
@@ -64,6 +64,11 @@
 
   .navigation-brand span {
     display: initial;
+  }
+
+  .nav-beta {
+    font-size: 14px;
+    padding: 4px 10px;
   }
 
   .sm-navigation-links {
