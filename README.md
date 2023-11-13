@@ -45,7 +45,7 @@ To run this project locally, follow these steps:
 2. Install dependencies:
 
     ```bash
-    cd client
+    cd ../client
     npm install
 
     cd ../server
@@ -62,7 +62,23 @@ To run this project locally, follow these steps:
     sudo service redis-server start
     ```
 
-4. Configure the server:
+4. Configure the client:
+
+    - Update the `.env` file in the `client` folder with your local settings:
+
+    ```env
+    VITE_LOGIN = "http://localhost:3000/auth/api/login"
+    VITE_LOGIN_SUCCESS = "http://localhost:3000/auth/api/login/success"
+    VITE_LOGOUT = "http://localhost:3000/auth/api/logout"
+    VITE_URL_FREE = "http://localhost:3000/api/url/free"
+    VITE_URL_PAID = "http://localhost:3000/api/url/paid"
+    VITE_SHORT_URL = "http://localhost:3000/"
+    VITE_DASHBOARD_HOME = "http://localhost:3000/api/url/dashboard/data"
+    VITE_DASHBOARD_ALL_LINKS = "http://localhost:3000/api/url/link/all"
+    VITE_DASHBOARD_ANALYTICS = "http://localhost:3000/api/url/link/analytics"
+    ```
+
+5. Configure the server:
 
     - Update the `.env` file in the `server` folder for local Redis settings:
 
