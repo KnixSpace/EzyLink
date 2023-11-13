@@ -45,7 +45,7 @@ To run this project locally, follow these steps:
 2. Install dependencies:
 
     ```bash
-    cd ../client
+    cd client
     npm install
 
     cd ../server
@@ -121,5 +121,19 @@ To run this project locally, follow these steps:
     ```
 
     For Upstash, comment the local Redis configuration and uncomment the Upstash configuration.
+
+6. Start the frontend:
+
+    ```bash
+    cd client
+    npm run dev
+    ```
+
+7. Start the backend:
+
+    ```bash
+    cd ../server
+    node index.js
+    ```
 
 Now you can access the URL Shortener locally at [http://localhost:5173/](http://localhost:5173/).
