@@ -1,4 +1,4 @@
-# EzyLink - MERN Stack URL Shortener Project
+#EzyLink - MERN Stack URL Shortener Project
 
 Efficiently manage and shorten URLs with our MERN stack URL Shortener. This project leverages MongoDB, Express.js, React, and Node.js to provide a streamlined solution for creating and managing shortened links. Enhance your web navigation experience with ease and simplicity.
 
