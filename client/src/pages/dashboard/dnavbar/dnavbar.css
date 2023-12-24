@@ -90,4 +90,8 @@
   .material-icons-outlined.md-18 {
     font-size: 18px;
   }
+
+  .dnav-user span {
+    display: none;
+  }
 }
