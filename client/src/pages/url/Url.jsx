@@ -56,7 +56,7 @@ const Url = () => {
   return (
     <>
       <AnimatePresence>
-        <div className="loader-box">{loading && <Loadere key={11} />}</div>
+        <div className="loader-box">{loading && <Loadere key={15} />}</div>
         <div className="url-short">
           {getUrl && <ShortUrl urldata={shortUrl} key={5} />}
         </div>
