@@ -24,8 +24,8 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      // secure: process.env.NODE_ENV !== "development",
-      // sameSite: process.env.NODE_ENV === "development" ? "lax" : "none",
+      secure: process.env.NODE_ENV !== "development",
+      sameSite: process.env.NODE_ENV === "development" ? "lax" : "none",
       // domain: process.env.NODE_ENV === "development" ? "localhost" : "ezylink",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     },
