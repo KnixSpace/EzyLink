@@ -11,6 +11,7 @@ const cookieParser = require("cookie-parser");
 const app = express();
 require("dotenv").config();
 require("./startup/passport");
+
 app.set("trust proxy", 1);
 
 app.get("/", (req, res) => {
@@ -25,7 +26,7 @@ app.use(cookieParser());
 
 app.use(
   session({
-    secret: "infinix",
+    secret: process.env.COOKIE_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
