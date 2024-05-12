@@ -1,18 +1,23 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 const { UrlData } = require("../models/paidUrl");
-const updateData = async (shortUrl) => {
+const updateData = async (shortUrl, ip) => {
+  const response = await fetch(
+    `https://ipapi.co/${ip}/json/?key=cHyPtxjkU8YjP9qLOiSpLVGYyEWdyCgWycVKuoAaQGRuxQVH9O"`
+  );
+  const data = await response.json();
+  const country = data.country_name;
   // fetch user ip for country
-  const ipData = await fetch(process.env.IP_DATA);
-  const res = await ipData.json();
-  let country = res.country_name;
+  // const ipData = await fetch(process.env.IP_DATA);
+  // const res = await ipData.json();
+  // let country = res.country_name;
   // console.log(country, res);
 
-  if (!country) {
-    const ipData = await fetch(process.env.IP_DATA_BACKUP);
-    const res = await ipData.json();
-    country = res.country;
-  }
+  // if (!country) {
+  //   const ipData = await fetch(process.env.IP_DATA_BACKUP);
+  //   const res = await ipData.json();
+  //   country = res.country;
+  // }
   // console.log(country, res);
 
   // previous monday
