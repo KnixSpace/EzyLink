@@ -136,10 +136,14 @@ router.post("/api/url/dashboard/data", ensurAuthenticated, async (req, res) => {
       }
     });
   });
+
+  const sortedDate = lineData.sort((a, b) => {
+    return new Date(a[0]) - new Date(b[0]);
+  });
   const clickData = {
     total,
     geoData,
-    lineData,
+    lineData: sortedDate,
   };
   res.send(JSON.stringify(clickData));
 });
