@@ -12,6 +12,11 @@ const app = express();
 require("dotenv").config();
 require("./startup/passport");
 app.set("trust proxy", 1);
+
+app.get("/", (req, res) => {
+  res.redirect("/api/hello");
+});
+
 app.get("/api/hello", (req, res) => {
   res.send("Infinix is Alive!");
 });
