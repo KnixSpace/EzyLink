@@ -59,9 +59,8 @@ function App() {
             <Route path="newlink" element={<NewLink userData={user} />} />
             <Route path="analytics" element={<Analytics userData={user} />} />
             <Route path="links" element={<Alink userData={user} />} />
-            <Route path="*" element={<ErrorPage />}></Route>
           </Route>
-          <Route path="*" element={<ErrorPage />}></Route>
+          <Route path="*" element={<Navigate to="/" replace />}></Route>
         </Route>
       </Routes>
     </AnimatePresence>
