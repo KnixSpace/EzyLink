@@ -104,7 +104,7 @@ const Analytics = ({ userData }) => {
   };
   return (
     <>
-      <div className="loader-box">{loading && <Loadere key={11} />}</div>
+      <div className="loader-box">{loading && <Loadere key={15} />}</div>
       <div className="analytic-main">
         <span className="analytic-title">Analytics</span>
         <div className="analytic-searchbar">

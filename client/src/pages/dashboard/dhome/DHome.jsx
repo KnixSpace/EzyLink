@@ -15,8 +15,8 @@ const DHome = ({ userData }) => {
     const userId = {
       email: userData.email,
     };
-    setHLoader(true);
     const getData = async () => {
+      setHLoader(true);
       fetch(import.meta.env.VITE_DASHBOARD_HOME, {
         method: "POST",
         headers: {
@@ -62,8 +62,8 @@ const DHome = ({ userData }) => {
   return (
     <>
       {hloader ? (
-        <div className="loadere-box">
-          <Loadere key={11} />
+        <div className="loadere-box" key={11}>
+          <Loadere />
         </div>
       ) : total ? (
         <div className="dhome">

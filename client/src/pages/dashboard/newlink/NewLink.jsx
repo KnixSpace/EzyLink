@@ -60,7 +60,7 @@ const NewLink = ({ userData }) => {
     <>
       <AnimatePresence>
         <div className="loader-box">
-          <div className="loader-box">{loading && <Loadere key={11} />}</div>
+          <div className="loader-box">{loading && <Loadere key={13} />}</div>
         </div>
         <div className="newlink-shortUrl">
           {getUrl && <ShortUrl urldata={shortUrl} key={8} />}

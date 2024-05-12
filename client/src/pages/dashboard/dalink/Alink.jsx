@@ -49,7 +49,7 @@ const Alink = ({ userData }) => {
     <>
       {loading ? (
         <div className="loader-box">
-          <Loadere key={11} />
+          <Loadere key={14} />
         </div>
       ) : nosData ? (
         <div className="alink-illus-container">
