@@ -9,14 +9,6 @@ const mongoose = require("mongoose");
 const express = require("express");
 const router = express.Router();
 
-const getLocationFromIp = async (ip) => {
-  const response = await fetch(
-    `https://ipapi.co/${ip}/json/?key=cHyPtxjkU8YjP9qLOiSpLVGYyEWdyCgWycVKuoAaQGRuxQVH9O"`
-  );
-  const data = await response.json();
-  return data;
-};
-
 router.get("/:shortUrl", async (req, res) => {
   const shortUrl = req.params.shortUrl;
   const url = await Url.findOne({ shortUrl });
@@ -29,9 +21,7 @@ router.get("/:shortUrl", async (req, res) => {
   res.redirect(url.longUrl);
   const clientIp =
     req.ip || req.headers["x-forwarded-for"] || req.socket.remoteAddress;
-  const Cliloc = await getLocationFromIp(clientIp);
   updateData(shortUrl, clientIp);
-  console.log(Cliloc);
 });
 
 router.post("/api/url/free", limiter, async (req, res) => {
